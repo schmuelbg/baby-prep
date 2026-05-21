@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Prep · Due Late July 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --bg3: #f0efe9;
+    --text: #1a1a1a; --text2: #666; --text3: #999;
+    --border: rgba(0,0,0,0.1); --border2: rgba(0,0,0,0.2);
+    --green: #1D9E75; --green-light: #EAF3DE; --green-dark: #3B6D11;
+    --red-light: #FAECE7; --red-dark: #993C1D;
+    --blue-light: #E6F1FB; --blue-dark: #185FA5;
+    --amber-light: #FAEEDA; --amber-dark: #854F0B;
+    --radius: 10px; --radius-sm: 6px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e; --bg2: #2c2c2e; --bg3: #3a3a3c;
+      --text: #f2f2f7; --text2: #aeaeb2; --text3: #636366;
+      --border: rgba(255,255,255,0.1); --border2: rgba(255,255,255,0.22);
+      --green-light: #0a2e20; --green-dark: #9FE1CB;
+      --red-light: #2e1206; --red-dark: #F5C4B3;
+      --blue-light: #0a1e30; --blue-dark: #85B7EB;
+      --amber-light: #2a1a02; --amber-dark: #FAC775;
+    }
+  }
+  body { font-family: var(--font); background: var(--bg3); color: var(--text); min-height: 100vh; }
+  .container { max-width: 700px; margin: 0 auto; padding: 2rem 1rem 5rem; }
+
+  /* Header */
+  .header { margin-bottom: 2rem; }
+  .header h1 { font-size: 22px; font-weight: 600; }
+  .header p { font-size: 13px; color: var(--text2); margin-top: 3px; }
+  .prog-wrap { background: var(--bg2); border-radius: 99px; height: 5px; margin-top: 12px; }
+  .prog-fill { height: 5px; border-radius: 99px; background: var(--green); transition: width 0.4s; }
+  .prog-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
+
+  /* Sections */
+  .section { margin-bottom: 1.75rem; }
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--text3); }
+  .section-count { font-size: 11px; color: var(--text3); }
+  .drop-zone { min-height: 36px; }
+  .drop-zone.drag-active { background: var(--green-light); border-radius: var(--radius); outline: 2px dashed var(--green); outline-offset: -2px; }
+
+  /* Task card */
+  .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); margin-bottom: 6px; overflow: hidden; }
+  .card:hover { box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+  .card.dragging { opacity: 0.35; }
+  .card.drag-over { outline: 2px solid var(--green); outline-offset: -1px; }
+  .card.done > .card-main { opacity: 0.38; }
+  .card.done > .card-main .t-title { text-decoration: line-through; }
+
+  .card-main { display: flex; align-items: center; gap: 10px; padding: 11px 13px; min-height: 44px; }
+  .grip { cursor: grab; color: var(--text3); flex-shrink: 0; display: flex; align-items: center; }
+  .grip:active { cursor: grabbing; }
+  .cb { width: 19px; height: 19px; border-radius: 50%; border: 1.5px solid var(--border2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .15s; background: var(--bg); }
+  .cb:hover { border-color: var(--green); }
+  .card.done .cb { background: var(--green); border-color: var(--green); }
+  .cb .chk { display: none; }
+  .card.done .cb .chk { display: block; }
+  .t-title { font-size: 13px; font-weight: 500; color: var(--text); flex: 1; min-width: 0; cursor: pointer; line-height: 1.4; }
+  .t-title:hover { color: var(--green); }
+  .rename-row { display: flex; gap: 6px; align-items: center; margin-bottom: 12px; }
+  .rename-row label { font-size: 11px; color: var(--text3); white-space: nowrap; }
+  .rename-row input { flex: 1; font-size: 13px; font-weight: 500; padding: 5px 9px; border-radius: var(--radius-sm); border: 1px solid var(--green); background: var(--bg2); color: var(--text); font-family: var(--font); outline: none; }
+  .rename-row button { font-size: 12px; padding: 4px 10px; border-radius: var(--radius-sm); border: 0.5px solid var(--green); background: none; color: var(--green); cursor: pointer; white-space: nowrap; font-weight: 500; }
+  .rename-row button:hover { background: var(--green-light); }
+  .sub-edit-btn { background: none; border: none; cursor: pointer; color: var(--text3); padding: 0 3px; display: none; border-radius: 3px; line-height: 1; font-size: 12px; }
+  .sub:hover .sub-edit-btn { display: block; }
+  .sub-edit-btn:hover { color: var(--blue-dark); background: var(--blue-light); }
+  .sub-rename-input { font-size: 13px; color: var(--text); flex: 1; background: var(--bg2); border: 1px solid var(--green); border-radius: var(--radius-sm); padding: 2px 7px; font-family: var(--font); outline: none; }
+  .badges { display: flex; gap: 4px; flex-shrink: 0; flex-wrap: wrap; }
+  .badge { font-size: 10px; padding: 2px 7px; border-radius: 99px; font-weight: 600; white-space: nowrap; }
+  .b-hot { background: var(--red-light); color: var(--red-dark); }
+  .b-today { background: var(--green-light); color: var(--green-dark); }
+  .b-sue { background: var(--blue-light); color: var(--blue-dark); }
+  .b-deadline { background: var(--amber-light); color: var(--amber-dark); }
+  .exp-btn { background: none; border: none; cursor: pointer; color: var(--text3); padding: 3px 5px; display: flex; align-items: center; border-radius: 4px; flex-shrink: 0; }
+  .exp-btn:hover { background: var(--bg2); color: var(--text2); }
+
+  /* Detail panel */
+  .detail { border-top: 0.5px solid var(--border); padding: 12px 13px 14px 43px; }
+  .hint { font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 12px; }
+
+  /* Subtasks */
+  .subtasks-list { margin-bottom: 12px; }
+  .sub { display: flex; align-items: center; gap: 8px; padding: 5px 6px; border-radius: var(--radius-sm); cursor: pointer; }
+  .sub:hover { background: var(--bg2); }
+  .sub-cb { width: 15px; height: 15px; border-radius: 3px; border: 1.5px solid var(--border2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all .15s; background: var(--bg); }
+  .sub:hover .sub-cb { border-color: var(--green); }
+  .sub.done .sub-cb { background: var(--green); border-color: var(--green); }
+  .sub.done .sub-lbl { text-decoration: line-through; color: var(--text3); }
+  .sub-lbl { font-size: 13px; color: var(--text); flex: 1; }
+  .sub-del { background: none; border: none; cursor: pointer; color: var(--text3); font-size: 16px; padding: 0 2px; display: none; line-height: 1; border-radius: 3px; }
+  .sub:hover .sub-del { display: block; }
+  .sub-del:hover { color: var(--red-dark); background: var(--red-light); }
+
+  /* Add subtask inline */
+  .add-sub-row { display: flex; gap: 6px; margin-bottom: 12px; }
+  .add-sub-row input { flex: 1; font-size: 12px; padding: 6px 9px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text); font-family: var(--font); }
+  .add-sub-row input:focus { outline: none; border-color: var(--green); }
+  .add-sub-row button { font-size: 12px; padding: 5px 10px; border-radius: var(--radius-sm); border: 0.5px solid var(--green); background: none; color: var(--green); cursor: pointer; white-space: nowrap; font-weight: 500; }
+  .add-sub-row button:hover { background: var(--green-light); }
+
+  /* Notes */
+  .notes-area { margin-bottom: 12px; }
+  .notes-area label { font-size: 11px; color: var(--text3); display: block; margin-bottom: 4px; }
+  textarea { width: 100%; font-size: 12px; padding: 8px 10px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text); resize: vertical; min-height: 56px; font-family: var(--font); line-height: 1.5; }
+  textarea:focus { outline: none; border-color: var(--green); }
+
+  /* Detail actions */
+  .d-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .d-actions label { font-size: 11px; color: var(--text3); }
+  select { font-size: 12px; padding: 5px 8px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text); cursor: pointer; font-family: var(--font); }
+  select:focus { outline: none; border-color: var(--green); }
+  .btn { font-size: 12px; padding: 5px 11px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text2); cursor: pointer; font-family: var(--font); }
+  .btn:hover { background: var(--bg3); }
+  .btn-danger { color: #A32D2D; border-color: #F09595; background: none; }
+  .btn-danger:hover { background: #FCEBEB; }
+  .btn-primary { background: var(--green); color: white; border-color: var(--green); font-weight: 500; }
+  .btn-primary:hover { opacity: 0.88; }
+
+  /* Add task form */
+  .add-section { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 18px; margin-top: 1.75rem; }
+  .add-section h3 { font-size: 13px; font-weight: 600; margin-bottom: 14px; color: var(--text2); }
+  .add-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+  input[type=text] { font-size: 13px; padding: 8px 10px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text); font-family: var(--font); width: 100%; }
+  input[type=text]:focus { outline: none; border-color: var(--green); }
+  .add-row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .add-row input { flex: 1; }
+  .checkbox-row { display: flex; gap: 14px; margin-bottom: 12px; flex-wrap: wrap; }
+  .checkbox-row label { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text2); cursor: pointer; }
+  input[type=checkbox] { accent-color: var(--green); cursor: pointer; }
+
+  .status-bar { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); font-size: 12px; padding: 7px 16px; border-radius: 99px; opacity: 0; transition: opacity .25s; pointer-events: none; }
+  .status-bar.show { opacity: 1; }
+  .empty { font-size: 12px; color: var(--text3); padding: 8px 4px; font-style: italic; }
+
+  .sub-progress { font-size: 11px; color: var(--text3); margin-left: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Baby prep</h1>
+    <p>Due late July 2026</p>
+    <div class="prog-wrap"><div class="prog-fill" id="prog-bar" style="width:0%"></div></div>
+    <div class="prog-label" id="prog-label">Loading...</div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-label">Today</span><span class="section-count" id="count-today"></span></div>
+    <div class="drop-zone" id="g-today" data-group="today"></div>
+  </div>
+  <div class="section">
+    <div class="section-header"><span class="section-label">Up next</span><span class="section-count" id="count-upnext"></span></div>
+    <div class="drop-zone" id="g-upnext" data-group="upnext"></div>
+  </div>
+  <div class="section">
+    <div class="section-header"><span class="section-label">On the list</span><span class="section-count" id="count-other"></span></div>
+    <div class="drop-zone" id="g-other" data-group="other"></div>
+  </div>
+  <div class="section">
+    <div class="section-header"><span class="section-label">Done</span><span class="section-count" id="count-done"></span></div>
+    <div class="drop-zone" id="g-done" data-group="done"></div>
+  </div>
+
+  <div class="add-section">
+    <h3>Add a task</h3>
+    <div class="add-row">
+      <input type="text" id="new-title" placeholder="Task title..." />
+    </div>
+    <div class="add-grid">
+      <select id="new-group">
+        <option value="today">Today</option>
+        <option value="upnext">Up next</option>
+        <option value="other" selected>On the list</option>
+      </select>
+      <input type="text" id="new-hint" placeholder="Hint / note (optional)" />
+    </div>
+    <div class="checkbox-row">
+      <label><input type="checkbox" id="new-hot"> High priority</label>
+      <label><input type="checkbox" id="new-sue"> Sue's lead</label>
+      <label><input type="checkbox" id="new-deadline"> Hard deadline</label>
+    </div>
+    <button class="btn btn-primary" onclick="addTask()">Add task</button>
+  </div>
+</div>
+
+<div class="status-bar" id="status">Saved</div>
+
+<script>
+const KEY = 'baby-prep-v6';
+const GROUPS = ['today','upnext','other','done'];
+const GROUP_LABELS = {today:'Today',upnext:'Up next',other:'On the list',done:'Done'};
+
+const DEFAULTS = [
+  {id:'a1',done:false,group:'today',hot:false,sue:false,deadline:false,title:'Hardware store run',hint:'',notes:'',subtasks:[],open:false},
+  {id:'a2',done:false,group:'today',hot:false,sue:false,deadline:false,title:'Make a shortlist of pediatricians',hint:'Park Slope practices fill fast — shortlist 4–5, check insurance, start calling.',notes:'',subtasks:[],open:false},
+  {id:'a3',done:false,group:'today',hot:false,sue:false,deadline:false,title:'Get catering squared away for shower/housewarming',hint:'Narrow down caterers or food style, get at least 2 quotes.',notes:'',subtasks:[],open:false},
+  {id:'b1',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Groceries for bolognese',hint:'Guests tomorrow night.',notes:'',subtasks:[],open:false},
+  {id:'b2',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Plan date night — Village Vanguard',hint:'Aiming for 6/6 or 6/7.',notes:'',subtasks:[{id:'b2s1',done:false,label:'Book Village Vanguard tickets'},{id:'b2s2',done:false,label:'Make a dinner reservation nearby'}],open:false},
+  {id:'b3',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Look into savings options for the baby',hint:'529 college savings plan (nysaves.org) and UTMA/custodial account research.',notes:'',subtasks:[{id:'b3s1',done:false,label:'Open 529 at nysaves.org'},{id:'b3s2',done:false,label:'Research UTMA/custodial accounts'}],open:false},
+  {id:'b4',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Baby fund — research HYSAs',hint:'Fidelity, Marcus by Goldman, or Ally. Aim for $5k–8k.',notes:'',subtasks:[],open:false},
+  {id:'b5',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Check dependent care FSA',hint:'Check both Area 23 and Sue\'s employer. $5k/year pre-tax toward childcare.',notes:'',subtasks:[{id:'b5s1',done:false,label:'Check Area 23 FSA options'},{id:'b5s2',done:false,label:'Check Sue\'s employer FSA'}],open:false},
+  {id:'b6',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Buy fold-out bed for Sue\'s mom (IKEA)',hint:'Already know which one — just order or pick up.',notes:'',subtasks:[],open:false},
+  {id:'b7',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Buy clothing rack for Sue\'s mom\'s room',hint:'Inexpensive freestanding rack — IKEA or Amazon.',notes:'',subtasks:[],open:false},
+  {id:'b8',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Buy cheap stools for the party',hint:'Rent (~$2–4/each) vs. buy IKEA MARIUS ($15/each).',notes:'',subtasks:[],open:false},
+  {id:'b9',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'AC for our living room',hint:'Separate from rental unit AC. Figure out sizing before summer.',notes:'',subtasks:[],open:false},
+  {id:'b10',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Double dresser for nursery',hint:'Measure the space first.',notes:'',subtasks:[],open:false},
+  {id:'b11',done:false,group:'upnext',hot:false,sue:false,deadline:false,title:'Car seat considerations',hint:'Infant vs. convertible — lean infant given baby may be small. Never buy used. Install before 35 weeks. Book free inspection (NYPD/fire station).',notes:'',subtasks:[{id:'b11s1',done:false,label:'Decide: infant seat vs. convertible'},{id:'b11s2',done:false,label:'Purchase car seat'},{id:'b11s3',done:false,label:'Install before 35 weeks'},{id:'b11s4',done:false,label:'Book free inspection (NYPD/fire station)'}],open:false},
+  {id:'c1',done:false,group:'other',hot:false,sue:false,deadline:true,title:'Add baby to health insurance',hint:'Hard 30-day deadline from birth. Missing it means waiting for open enrollment.',notes:'',subtasks:[],open:false},
+  {id:'c2',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Update beneficiaries on all accounts',hint:'Retirement accounts, life insurance, everything. Do before birth.',notes:'',subtasks:[],open:false},
+  {id:'c3',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Research daycares',hint:'Waitlists in Park Slope can be 1–2 years. Start now.',notes:'',subtasks:[{id:'c3s1',done:false,label:'Ask around for recommendations'},{id:'c3s2',done:false,label:'Tour at least 2–3 options'},{id:'c3s3',done:false,label:'Get on waitlists'}],open:false},
+  {id:'c4',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Set up the nursery',hint:'',notes:'',subtasks:[{id:'c4s1',done:false,label:'Figure out decorating'},{id:'c4s2',done:false,label:'Build the crib (already bought)'},{id:'c4s3',done:false,label:'Get double dresser'}],open:false},
+  {id:'c5',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Baby proofing',hint:'Not urgent until baby is mobile — around 6–8 months post-birth.',notes:'',subtasks:[],open:false},
+  {id:'c6',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Get a will drafted',hint:'Trust & Will or Fabric online (~$100–200). Designates guardian if something happens to both of you.',notes:'',subtasks:[],open:false},
+  {id:'c7',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Look into term life insurance',hint:'Cheapest in your 30s. A 20-year term policy is surprisingly affordable.',notes:'',subtasks:[],open:false},
+  {id:'c8',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Skim the dad books',hint:'The New Father: read birth + first-month chapters at minimum.',notes:'',subtasks:[],open:false},
+  {id:'c9',done:false,group:'other',hot:false,sue:true,deadline:false,title:'Update finances & insurance (broader)',hint:'Sue\'s lead — revisit household budget, check disability insurance.',notes:'',subtasks:[],open:false},
+  {id:'d1',done:true,group:'done',hot:false,sue:false,deadline:false,title:'Book birth & delivery class',hint:'Lamaze class booked.',notes:'',subtasks:[],open:false},
+  {id:'d2',done:true,group:'done',hot:false,sue:true,deadline:false,title:'Rental unit AC',hint:'Sue\'s lead, in progress.',notes:'',subtasks:[],open:false},
+];
+
+let tasks = [];
+let dragId = null;
+let saveTimer = null;
+
+function load() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) tasks = JSON.parse(raw);
+    else throw new Error();
+  } catch(e) {
+    tasks = JSON.parse(JSON.stringify(DEFAULTS));
+    persist(true);
+  }
+  render(); updateProgress();
+}
+
+function persist(silent=false) {
+  localStorage.setItem(KEY, JSON.stringify(tasks));
+  if (!silent) showStatus('Saved');
+}
+function scheduleSave() { clearTimeout(saveTimer); saveTimer = setTimeout(()=>persist(), 700); }
+function showStatus(msg) {
+  const el = document.getElementById('status');
+  el.textContent = msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'), 1800);
+}
+
+function countItems() {
+  let total=0, done=0;
+  tasks.filter(t=>t.group!=='done').forEach(t=>{
+    if (t.subtasks.length) { t.subtasks.forEach(s=>{ total++; if(s.done) done++; }); }
+    else { total++; if(t.done) done++; }
+  });
+  return {total, done};
+}
+
+function updateProgress() {
+  const {total, done} = countItems();
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById('prog-bar').style.width = pct+'%';
+  document.getElementById('prog-label').textContent = `${done} of ${total} tasks done`;
+  GROUPS.forEach(g => {
+    const el = document.getElementById('count-'+g);
+    if (el) { const n=tasks.filter(t=>t.group===g).length; el.textContent=n+' task'+(n!==1?'s':''); }
+  });
+}
+
+const GRIP = `<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor">
+  <circle cx="2.5" cy="3" r="1.5"/><circle cx="7.5" cy="3" r="1.5"/>
+  <circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/>
+  <circle cx="2.5" cy="13" r="1.5"/><circle cx="7.5" cy="13" r="1.5"/>
+</svg>`;
+const CHK = `<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const MCHK = `<svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const CHEVD = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const CHEVU = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 9L7 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const PLUS = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+const X = `<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+
+function renderGroup(group) {
+  const el = document.getElementById('g-'+group);
+  el.innerHTML = '';
+  const subset = tasks.filter(t=>t.group===group);
+  if (!subset.length) { el.innerHTML='<div class="empty">Nothing here</div>'; return; }
+
+  subset.forEach(t => {
+    const allSubDone = t.subtasks.length>0 && t.subtasks.every(s=>s.done);
+    const isDone = group==='done' || t.done || (t.subtasks.length>0 && allSubDone);
+    const subDoneCount = t.subtasks.filter(s=>s.done).length;
+
+    let badges = '';
+    if (t.hot && !isDone) badges += '<span class="badge b-hot">high priority</span>';
+    if (group==='today' && !isDone) badges += '<span class="badge b-today">today</span>';
+    if (t.deadline && !isDone) badges += '<span class="badge b-deadline">hard deadline</span>';
+    if (t.sue) badges += '<span class="badge b-sue">sue\'s lead</span>';
+
+    let subProgress = '';
+    if (t.subtasks.length > 0) {
+      subProgress = `<span class="sub-progress">${subDoneCount}/${t.subtasks.length}</span>`;
+    }
+
+    let detailHtml = '';
+    if (t.open) {
+      let subsHtml = '';
+      if (t.subtasks.length) {
+        subsHtml = '<div class="subtasks-list">';
+        t.subtasks.forEach(s => {
+          subsHtml += `<div class="sub${s.done?' done':''}" data-tid="${t.id}" data-sid="${s.id}">
+            <div class="sub-cb">${s.done ? MCHK : ''}</div>
+            <span class="sub-lbl">${s.label}</span>
+            <button class="sub-edit-btn" data-tid="${t.id}" data-sid="${s.id}" title="Rename">&#9998;</button>
+            <button class="sub-del" data-tid="${t.id}" data-sid="${s.id}" title="Remove">${X}</button>
+          </div>`;
+        });
+        subsHtml += '</div>';
+      }
+
+      const otherGroups = GROUPS.filter(g=>g!==group);
+      const moveOpts = otherGroups.map(g=>`<option value="${g}">${GROUP_LABELS[g]}</option>`).join('');
+
+      detailHtml = `<div class="detail">
+        <div class="rename-row">
+          <label>Task name</label>
+          <input type="text" class="rename-input" data-tid="${t.id}" value="${t.title.replace(/"/g,'&quot;')}" />
+          <button class="rename-save-btn" data-tid="${t.id}">Save</button>
+        </div>
+        ${t.hint ? `<div class="hint">${t.hint}</div>` : ''}
+        ${subsHtml}
+        <div class="add-sub-row">
+          <input type="text" class="sub-input" data-tid="${t.id}" placeholder="Add a subtask..."/>
+          <button class="add-sub-btn" data-tid="${t.id}">${PLUS} Add</button>
+        </div>
+        <div class="notes-area">
+          <label>Notes</label>
+          <textarea data-tid="${t.id}" rows="3" placeholder="Add notes...">${t.notes||''}</textarea>
+        </div>
+        <div class="d-actions">
+          <label>Move to:</label>
+          <select class="move-sel" data-tid="${t.id}"><option value="">— select —</option>${moveOpts}</select>
+          <button class="btn btn-danger" data-del="${t.id}">Delete task</button>
+        </div>
+      </div>`;
+    }
+
+    const card = document.createElement('div');
+    card.className = 'card'+(isDone?' done':'');
+    card.setAttribute('draggable','true');
+    card.dataset.tid = t.id;
+    card.innerHTML = `
+      <div class="card-main">
+        <div class="grip">${GRIP}</div>
+        <div class="cb" data-tid="${t.id}">${CHK}</div>
+        <span class="t-title" data-tid="${t.id}">${t.title}${subProgress}</span>
+        <div class="badges">${badges}</div>
+        <button class="exp-btn" data-tid="${t.id}">${t.open ? CHEVU : CHEVD}</button>
+      </div>
+      ${detailHtml}
+    `;
+
+    // Drag
+    card.addEventListener('dragstart', e => {
+      dragId = t.id;
+      e.dataTransfer.effectAllowed = 'move';
+      setTimeout(()=>card.classList.add('dragging'), 0);
+    });
+    card.addEventListener('dragend', () => {
+      card.classList.remove('dragging');
+      document.querySelectorAll('.drag-over,.drag-active').forEach(x=>{x.classList.remove('drag-over');x.classList.remove('drag-active');});
+      dragId = null;
+    });
+    card.addEventListener('dragover', e => {
+      e.preventDefault();
+      if (dragId && dragId!==t.id) {
+        document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));
+        card.classList.add('drag-over');
+      }
+    });
+    card.addEventListener('dragleave', ()=>card.classList.remove('drag-over'));
+    card.addEventListener('drop', e => {
+      e.preventDefault(); e.stopPropagation();
+      if (!dragId || dragId===t.id) return;
+      const fi = tasks.findIndex(x=>x.id===dragId);
+      const ti = tasks.findIndex(x=>x.id===t.id);
+      const [moved] = tasks.splice(fi,1);
+      moved.group = group;
+      moved.done = group==='done';
+      tasks.splice(ti,0,moved);
+      render(); updateProgress(); persist();
+    });
+
+    // Checkbox
+    card.querySelector('.cb').addEventListener('click', e => {
+      e.stopPropagation();
+      const task = tasks.find(x=>x.id===e.currentTarget.dataset.tid);
+      if (!task || task.subtasks.length>0 || group==='done') return;
+      task.done = !task.done;
+      if (task.done) task.group = 'done';
+      render(); updateProgress(); persist();
+    });
+
+    // Expand on click
+    card.querySelector('.t-title').addEventListener('click', e => {
+      const task = tasks.find(x=>x.id===e.currentTarget.dataset.tid);
+      if (task) { task.open=!task.open; render(); }
+    });
+    card.querySelector('.exp-btn').addEventListener('click', e => {
+      e.stopPropagation();
+      const task = tasks.find(x=>x.id===e.currentTarget.dataset.tid);
+      if (task) { task.open=!task.open; render(); }
+    });
+
+    // Rename task save button
+    const renameInput = card.querySelector('.rename-input');
+    const renameSaveBtn = card.querySelector('.rename-save-btn');
+    if (renameSaveBtn) {
+      const doRename = () => {
+        const val = renameInput.value.trim();
+        const task = tasks.find(x=>x.id===renameSaveBtn.dataset.tid);
+        if (task && val) { task.title = val; render(); updateProgress(); persist(); }
+      };
+      renameSaveBtn.addEventListener('click', e => { e.stopPropagation(); doRename(); });
+      renameInput.addEventListener('keydown', e => { if(e.key==='Enter'){e.preventDefault();doRename();} });
+      renameInput.addEventListener('click', e=>e.stopPropagation());
+    }
+
+    // Subtask toggle
+    card.querySelectorAll('.sub').forEach(row => {
+      row.addEventListener('click', e => {
+        if (e.target.closest('.sub-del') || e.target.closest('.sub-edit-btn')) return;
+        e.stopPropagation();
+        const task = tasks.find(x=>x.id===row.dataset.tid);
+        const sub = task && task.subtasks.find(x=>x.id===row.dataset.sid);
+        if (sub) { sub.done=!sub.done; render(); updateProgress(); scheduleSave(); }
+      });
+    });
+
+    // Subtask rename via pencil button
+    card.querySelectorAll('.sub-edit-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const task = tasks.find(x=>x.id===btn.dataset.tid);
+        const sub = task && task.subtasks.find(x=>x.id===btn.dataset.sid);
+        if (!sub) return;
+        const newLabel = prompt('Rename subtask:', sub.label);
+        if (newLabel && newLabel.trim()) {
+          sub.label = newLabel.trim();
+          render(); persist();
+        }
+      });
+    });
+
+    // Subtask delete
+    card.querySelectorAll('.sub-del').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const task = tasks.find(x=>x.id===btn.dataset.tid);
+        if (task) {
+          task.subtasks = task.subtasks.filter(s=>s.id!==btn.dataset.sid);
+          render(); updateProgress(); persist();
+        }
+      });
+    });
+
+    // Add subtask
+    const addSubBtn = card.querySelector('.add-sub-btn');
+    if (addSubBtn) {
+      const addSubInput = card.querySelector('.sub-input');
+      const doAddSub = () => {
+        const val = addSubInput.value.trim();
+        if (!val) return;
+        const task = tasks.find(x=>x.id===addSubBtn.dataset.tid);
+        if (task) {
+          task.subtasks.push({id:'s'+Date.now(), done:false, label:val});
+          render(); updateProgress(); persist();
+        }
+      };
+      addSubBtn.addEventListener('click', e => { e.stopPropagation(); doAddSub(); });
+      addSubInput.addEventListener('keydown', e => { if(e.key==='Enter'){e.stopPropagation();doAddSub();} });
+      addSubInput.addEventListener('click', e=>e.stopPropagation());
+    }
+
+    // Notes
+    const ta = card.querySelector('textarea');
+    if (ta) {
+      ta.addEventListener('input', () => {
+        const task = tasks.find(x=>x.id===ta.dataset.tid);
+        if (task) { task.notes=ta.value; scheduleSave(); }
+      });
+      ta.addEventListener('click', e=>e.stopPropagation());
+    }
+
+    // Move
+    const sel = card.querySelector('.move-sel');
+    if (sel) {
+      sel.addEventListener('change', () => {
+        if (!sel.value) return;
+        const task = tasks.find(x=>x.id===sel.dataset.tid);
+        if (task) { task.group=sel.value; task.open=false; task.done=sel.value==='done'; render(); updateProgress(); persist(); }
+      });
+      sel.addEventListener('click', e=>e.stopPropagation());
+    }
+
+    // Delete
+    const delBtn = card.querySelector('[data-del]');
+    if (delBtn) {
+      delBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        if (!confirm('Delete "'+t.title+'"?')) return;
+        tasks = tasks.filter(x=>x.id!==delBtn.dataset.del);
+        render(); updateProgress(); persist();
+      });
+    }
+
+    el.appendChild(card);
+  });
+
+  // Drop on zone
+  el.addEventListener('dragover', e=>{e.preventDefault(); el.classList.add('drag-active');});
+  el.addEventListener('dragleave', e=>{if(!el.contains(e.relatedTarget)) el.classList.remove('drag-active');});
+  el.addEventListener('drop', e=>{
+    e.preventDefault(); el.classList.remove('drag-active');
+    if (!dragId) return;
+    const task = tasks.find(x=>x.id===dragId);
+    if (task && task.group!==group) { task.group=group; task.open=false; task.done=group==='done'; render(); updateProgress(); persist(); }
+  });
+}
+
+function render() { GROUPS.forEach(g=>renderGroup(g)); }
+
+function addTask() {
+  const title = document.getElementById('new-title').value.trim();
+  if (!title) return;
+  tasks.push({
+    id: 't'+Date.now(), done:false,
+    group: document.getElementById('new-group').value,
+    hot: document.getElementById('new-hot').checked,
+    sue: document.getElementById('new-sue').checked,
+    deadline: document.getElementById('new-deadline').checked,
+    title,
+    hint: document.getElementById('new-hint').value.trim(),
+    notes:'', subtasks:[], open:false
+  });
+  document.getElementById('new-title').value='';
+  document.getElementById('new-hint').value='';
+  ['new-hot','new-sue','new-deadline'].forEach(id=>document.getElementById(id).checked=false);
+  render(); updateProgress(); persist();
+}
+
+document.getElementById('new-title').addEventListener('keydown', e=>{if(e.key==='Enter') addTask();});
+load();
+</script>
+</body>
+</html>
