@@ -1,147 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0058)file:///Users/Sam.Ballot-Godsey/Downloads/index%20(1).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby Prep · Due Late July 2026</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #ffffff; --bg2: #f7f7f5; --bg3: #f0efe9;
-    --text: #1a1a1a; --text2: #666; --text3: #999;
-    --border: rgba(0,0,0,0.1); --border2: rgba(0,0,0,0.2);
-    --green: #1D9E75; --green-light: #EAF3DE; --green-dark: #3B6D11;
-    --red-light: #FAECE7; --red-dark: #993C1D;
-    --blue-light: #E6F1FB; --blue-dark: #185FA5;
-    --amber-light: #FAEEDA; --amber-dark: #854F0B;
-    --radius: 10px; --radius-sm: 6px;
-    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#fff;--bg2:#f7f7f5;--bg3:#f0efe9;
+  --text:#1a1a1a;--text2:#666;--text3:#999;
+  --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.2);
+  --green:#1D9E75;--green-light:#EAF3DE;--green-dark:#3B6D11;
+  --red-light:#FAECE7;--red-dark:#993C1D;
+  --blue-light:#E6F1FB;--blue-dark:#185FA5;
+  --amber-light:#FAEEDA;--amber-dark:#854F0B;
+  --pink:#D4537E;--pink-light:#FBEAF0;--pink-dark:#993556;
+  --radius:10px;--radius-sm:6px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#1c1c1e;--bg2:#2c2c2e;--bg3:#3a3a3c;
+    --text:#f2f2f7;--text2:#aeaeb2;--text3:#636366;
+    --border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.22);
+    --green-light:#0a2e20;--green-dark:#9FE1CB;
+    --red-light:#2e1206;--red-dark:#F5C4B3;
+    --blue-light:#0a1e30;--blue-dark:#85B7EB;
+    --amber-light:#2a1a02;--amber-dark:#FAC775;
+    --pink-light:#2e0a18;--pink-dark:#F4C0D1;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #1c1c1e; --bg2: #2c2c2e; --bg3: #3a3a3c;
-      --text: #f2f2f7; --text2: #aeaeb2; --text3: #636366;
-      --border: rgba(255,255,255,0.1); --border2: rgba(255,255,255,0.22);
-      --green-light: #0a2e20; --green-dark: #9FE1CB;
-      --red-light: #2e1206; --red-dark: #F5C4B3;
-      --blue-light: #0a1e30; --blue-dark: #85B7EB;
-      --amber-light: #2a1a02; --amber-dark: #FAC775;
-    }
-  }
-  body { font-family: var(--font); background: var(--bg3); color: var(--text); min-height: 100vh; }
-  .container { max-width: 700px; margin: 0 auto; padding: 2rem 1rem 5rem; }
+}
+body{font-family:var(--font);background:var(--bg3);color:var(--text);min-height:100vh;}
+.container{max-width:780px;margin:0 auto;padding:1.5rem 1rem 5rem;}
+.header{margin-bottom:1.25rem;}
+.header h1{font-size:22px;font-weight:600;}
+.header p{font-size:13px;color:var(--text2);margin-top:3px;}
 
-  /* Header */
-  .header { margin-bottom: 2rem; }
-  .header h1 { font-size: 22px; font-weight: 600; }
-  .header p { font-size: 13px; color: var(--text2); margin-top: 3px; }
-  .prog-wrap { background: var(--bg2); border-radius: 99px; height: 5px; margin-top: 12px; }
-  .prog-fill { height: 5px; border-radius: 99px; background: var(--green); transition: width 0.4s; }
-  .prog-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
+/* Tabs */
+.tabs{display:flex;gap:3px;margin-bottom:1.25rem;background:var(--bg2);padding:4px;border-radius:var(--radius);}
+.tab{flex:1;text-align:center;padding:8px 10px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;cursor:pointer;color:var(--text2);border:none;background:none;font-family:var(--font);transition:all .15s;}
+.tab:hover{color:var(--text);background:rgba(255,255,255,0.5);}
+.tab.active{background:var(--bg);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
 
-  /* Sections */
-  .section { margin-bottom: 1.75rem; }
-  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-  .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--text3); }
-  .section-count { font-size: 11px; color: var(--text3); }
-  .drop-zone { min-height: 36px; }
-  .drop-zone.drag-active { background: var(--green-light); border-radius: var(--radius); outline: 2px dashed var(--green); outline-offset: -2px; }
+/* Progress */
+.prog-wrap{background:var(--bg2);border-radius:99px;height:5px;margin-bottom:5px;}
+.prog-fill{height:5px;border-radius:99px;transition:width 0.4s;background:var(--green);}
+.prog-fill.pink{background:var(--pink);}
+.prog-label{font-size:12px;color:var(--text3);margin-bottom:1.25rem;}
 
-  /* Task card */
-  .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); margin-bottom: 6px; overflow: hidden; }
-  .card:hover { box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
-  .card.dragging { opacity: 0.35; }
-  .card.drag-over { outline: 2px solid var(--green); outline-offset: -1px; }
-  .card.done > .card-main { opacity: 0.38; }
-  .card.done > .card-main .t-title { text-decoration: line-through; }
+/* Sections */
+.section{margin-bottom:1.5rem;}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);}
+.section-count{font-size:11px;color:var(--text3);}
+.drop-zone{min-height:32px;}
+.drop-zone.drag-active{background:var(--green-light);border-radius:var(--radius);outline:2px dashed var(--green);outline-offset:-2px;}
 
-  .card-main { display: flex; align-items: center; gap: 10px; padding: 11px 13px; min-height: 44px; }
-  .grip { cursor: grab; color: var(--text3); flex-shrink: 0; display: flex; align-items: center; }
-  .grip:active { cursor: grabbing; }
-  .cb { width: 19px; height: 19px; border-radius: 50%; border: 1.5px solid var(--border2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .15s; background: var(--bg); }
-  .cb:hover { border-color: var(--green); }
-  .card.done .cb { background: var(--green); border-color: var(--green); }
-  .cb .chk { display: none; }
-  .card.done .cb .chk { display: block; }
-  .t-title { font-size: 13px; font-weight: 500; color: var(--text); flex: 1; min-width: 0; cursor: pointer; line-height: 1.4; }
-  .t-title:hover { color: var(--green); }
-  .rename-row { display: flex; gap: 6px; align-items: center; margin-bottom: 12px; }
-  .rename-row label { font-size: 11px; color: var(--text3); white-space: nowrap; }
-  .rename-row input { flex: 1; font-size: 13px; font-weight: 500; padding: 5px 9px; border-radius: var(--radius-sm); border: 1px solid var(--green); background: var(--bg2); color: var(--text); font-family: var(--font); outline: none; }
-  .rename-row button { font-size: 12px; padding: 4px 10px; border-radius: var(--radius-sm); border: 0.5px solid var(--green); background: none; color: var(--green); cursor: pointer; white-space: nowrap; font-weight: 500; }
-  .rename-row button:hover { background: var(--green-light); }
-  .sub-edit-btn { background: none; border: none; cursor: pointer; color: var(--text3); padding: 0 3px; display: none; border-radius: 3px; line-height: 1; font-size: 12px; }
-  .sub:hover .sub-edit-btn { display: block; }
-  .sub-edit-btn:hover { color: var(--blue-dark); background: var(--blue-light); }
-  .sub-rename-input { font-size: 13px; color: var(--text); flex: 1; background: var(--bg2); border: 1px solid var(--green); border-radius: var(--radius-sm); padding: 2px 7px; font-family: var(--font); outline: none; }
-  .badges { display: flex; gap: 4px; flex-shrink: 0; flex-wrap: wrap; }
-  .badge { font-size: 10px; padding: 2px 7px; border-radius: 99px; font-weight: 600; white-space: nowrap; }
-  .b-hot { background: var(--red-light); color: var(--red-dark); }
-  .b-today { background: var(--green-light); color: var(--green-dark); }
-  .b-sue { background: var(--blue-light); color: var(--blue-dark); }
-  .b-deadline { background: var(--amber-light); color: var(--amber-dark); }
-  .exp-btn { background: none; border: none; cursor: pointer; color: var(--text3); padding: 3px 5px; display: flex; align-items: center; border-radius: 4px; flex-shrink: 0; }
-  .exp-btn:hover { background: var(--bg2); color: var(--text2); }
+/* Cards */
+.card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);margin-bottom:6px;overflow:hidden;}
+.card:hover{box-shadow:0 1px 4px rgba(0,0,0,0.07);}
+.card.dragging{opacity:0.35;}
+.card.drag-over{outline:2px solid var(--green);outline-offset:-1px;}
+.card.done>.card-main{opacity:0.38;}
+.card.done>.card-main .t-title{text-decoration:line-through;}
+.card-main{display:flex;align-items:center;gap:10px;padding:11px 13px;min-height:44px;}
+.grip{cursor:grab;color:var(--text3);flex-shrink:0;display:flex;align-items:center;}
+.grip:active{cursor:grabbing;}
+.cb{width:19px;height:19px;border-radius:50%;border:1.5px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;background:var(--bg);}
+.cb:hover{border-color:var(--green);}
+.card.done .cb{background:var(--green);border-color:var(--green);}
+.cb .chk{display:none;}
+.card.done .cb .chk{display:block;}
+.t-title{font-size:13px;font-weight:500;color:var(--text);flex:1;min-width:0;cursor:pointer;line-height:1.4;}
+.t-title:hover{color:var(--green);}
+.sub-progress{font-size:11px;color:var(--text3);margin-left:4px;font-weight:400;}
+.badges{display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap;}
+.badge{font-size:10px;padding:2px 7px;border-radius:99px;font-weight:600;white-space:nowrap;}
+.b-hot{background:var(--red-light);color:var(--red-dark);}
+.b-today{background:var(--green-light);color:var(--green-dark);}
+.b-deadline{background:var(--amber-light);color:var(--amber-dark);}
+.b-owner-sam{background:var(--green-light);color:var(--green-dark);}
+.b-owner-sue{background:var(--pink-light);color:var(--pink-dark);}
+.b-owner-both{background:var(--blue-light);color:var(--blue-dark);}
+.exp-btn{background:none;border:none;cursor:pointer;color:var(--text3);padding:3px 5px;display:flex;align-items:center;border-radius:4px;flex-shrink:0;}
+.exp-btn:hover{background:var(--bg2);}
 
-  /* Detail panel */
-  .detail { border-top: 0.5px solid var(--border); padding: 12px 13px 14px 43px; }
-  .hint { font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 12px; }
+/* Detail */
+.detail{border-top:0.5px solid var(--border);padding:12px 13px 14px 43px;}
+.hint{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:12px;}
+.field-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;}
+.field-row label{font-size:11px;color:var(--text3);white-space:nowrap;min-width:70px;}
+.field-row input,.field-row select{flex:1;font-size:12px;padding:5px 9px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);font-family:var(--font);outline:none;}
+.field-row input:focus,.field-row select:focus{border-color:var(--green);}
+.field-row button{font-size:12px;padding:4px 10px;border-radius:var(--radius-sm);border:0.5px solid var(--green);background:none;color:var(--green);cursor:pointer;font-weight:500;white-space:nowrap;}
+.field-row button:hover{background:var(--green-light);}
 
-  /* Subtasks */
-  .subtasks-list { margin-bottom: 12px; }
-  .sub { display: flex; align-items: center; gap: 8px; padding: 5px 6px; border-radius: var(--radius-sm); cursor: pointer; }
-  .sub:hover { background: var(--bg2); }
-  .sub-cb { width: 15px; height: 15px; border-radius: 3px; border: 1.5px solid var(--border2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all .15s; background: var(--bg); }
-  .sub:hover .sub-cb { border-color: var(--green); }
-  .sub.done .sub-cb { background: var(--green); border-color: var(--green); }
-  .sub.done .sub-lbl { text-decoration: line-through; color: var(--text3); }
-  .sub-lbl { font-size: 13px; color: var(--text); flex: 1; }
-  .sub-del { background: none; border: none; cursor: pointer; color: var(--text3); font-size: 16px; padding: 0 2px; display: none; line-height: 1; border-radius: 3px; }
-  .sub:hover .sub-del { display: block; }
-  .sub-del:hover { color: var(--red-dark); background: var(--red-light); }
+/* Subtasks */
+.subtasks-list{margin-bottom:12px;}
+.sub{display:flex;align-items:center;gap:8px;padding:5px 6px;border-radius:var(--radius-sm);cursor:pointer;}
+.sub:hover{background:var(--bg2);}
+.sub-cb{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;background:var(--bg);}
+.sub:hover .sub-cb{border-color:var(--green);}
+.sub.done .sub-cb{background:var(--green);border-color:var(--green);}
+.sub.done .sub-lbl{text-decoration:line-through;color:var(--text3);}
+.sub-lbl{font-size:13px;color:var(--text);flex:1;}
+.sub-edit-btn{background:none;border:none;cursor:pointer;color:var(--text3);padding:0 3px;display:none;border-radius:3px;font-size:12px;}
+.sub:hover .sub-edit-btn{display:block;}
+.sub-edit-btn:hover{color:var(--blue-dark);background:var(--blue-light);}
+.sub-del{background:none;border:none;cursor:pointer;color:var(--text3);padding:0 3px;display:none;border-radius:3px;font-size:13px;}
+.sub:hover .sub-del{display:block;}
+.sub-del:hover{color:var(--red-dark);background:var(--red-light);}
+.add-sub-row{display:flex;gap:6px;margin-bottom:12px;}
+.add-sub-row input{flex:1;font-size:12px;padding:6px 9px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);font-family:var(--font);outline:none;}
+.add-sub-row input:focus{border-color:var(--green);}
+.add-sub-row button{font-size:12px;padding:5px 10px;border-radius:var(--radius-sm);border:0.5px solid var(--green);background:none;color:var(--green);cursor:pointer;font-weight:500;}
+.add-sub-row button:hover{background:var(--green-light);}
+.notes-area{margin-bottom:12px;}
+.notes-area label{font-size:11px;color:var(--text3);display:block;margin-bottom:4px;}
+textarea{width:100%;font-size:12px;padding:8px 10px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);resize:vertical;min-height:56px;font-family:var(--font);line-height:1.5;outline:none;}
+textarea:focus{border-color:var(--green);}
+.d-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.d-actions label{font-size:11px;color:var(--text3);}
+.btn{font-size:12px;padding:5px 11px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text2);cursor:pointer;font-family:var(--font);}
+.btn:hover{background:var(--bg3);}
+.btn-danger{color:#A32D2D;border-color:#F09595;background:none;}
+.btn-danger:hover{background:#FCEBEB;}
+.btn-primary{background:var(--green);color:white;border-color:var(--green);font-weight:500;}
+.btn-primary:hover{opacity:0.88;}
 
-  /* Add subtask inline */
-  .add-sub-row { display: flex; gap: 6px; margin-bottom: 12px; }
-  .add-sub-row input { flex: 1; font-size: 12px; padding: 6px 9px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text); font-family: var(--font); }
-  .add-sub-row input:focus { outline: none; border-color: var(--green); }
-  .add-sub-row button { font-size: 12px; padding: 5px 10px; border-radius: var(--radius-sm); border: 0.5px solid var(--green); background: none; color: var(--green); cursor: pointer; white-space: nowrap; font-weight: 500; }
-  .add-sub-row button:hover { background: var(--green-light); }
+/* Add form */
+.add-section{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:1.5rem;}
+.add-section h3{font-size:13px;font-weight:600;margin-bottom:14px;color:var(--text2);}
+.add-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+input[type=text]{font-size:13px;padding:8px 10px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);font-family:var(--font);width:100%;outline:none;}
+input[type=text]:focus{border-color:var(--green);}
+select{font-size:12px;padding:5px 8px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);cursor:pointer;font-family:var(--font);outline:none;}
+.add-row{display:flex;gap:8px;margin-bottom:8px;}
+.add-row input{flex:1;}
+.checkbox-row{display:flex;gap:14px;margin-bottom:12px;flex-wrap:wrap;}
+.checkbox-row label{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text2);cursor:pointer;}
+input[type=checkbox]{accent-color:var(--green);cursor:pointer;}
 
-  /* Notes */
-  .notes-area { margin-bottom: 12px; }
-  .notes-area label { font-size: 11px; color: var(--text3); display: block; margin-bottom: 4px; }
-  textarea { width: 100%; font-size: 12px; padding: 8px 10px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text); resize: vertical; min-height: 56px; font-family: var(--font); line-height: 1.5; }
-  textarea:focus { outline: none; border-color: var(--green); }
+/* Master table */
+.master-table{width:100%;border-collapse:collapse;font-size:13px;}
+.master-table th{text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);padding:8px 12px;border-bottom:0.5px solid var(--border2);}
+.master-table td{padding:10px 12px;border-bottom:0.5px solid var(--border);vertical-align:top;}
+.master-table tr:last-child td{border-bottom:none;}
+.master-table tr:hover td{background:var(--bg2);}
+.cat-label{font-size:11px;font-weight:600;color:var(--text2);}
+.status-pill{font-size:11px;padding:2px 8px;border-radius:99px;font-weight:500;}
+.status-done{background:var(--green-light);color:var(--green-dark);}
+.status-progress{background:var(--blue-light);color:var(--blue-dark);}
+.status-later{background:var(--bg3);color:var(--text3);}
+.status-ordered{background:var(--amber-light);color:var(--amber-dark);}
+.master-section-header{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);padding:16px 12px 6px;border-bottom:0.5px solid var(--border2);}
+.master-cb{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--border2);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;vertical-align:middle;margin-right:6px;flex-shrink:0;background:var(--bg);}
+.master-cb.done{background:var(--green);border-color:var(--green);}
+.master-edit-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-size:12px;padding:1px 4px;border-radius:3px;margin-left:4px;}
+.master-edit-btn:hover{color:var(--blue-dark);background:var(--blue-light);}
+.master-cat-group{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden;}
+.master-cat-title{font-size:12px;font-weight:600;color:var(--text2);padding:10px 14px;background:var(--bg2);border-bottom:0.5px solid var(--border);}
+.master-row{display:flex;align-items:flex-start;gap:10px;padding:9px 14px;border-bottom:0.5px solid var(--border);}
+.master-row:last-child{border-bottom:none;}
+.master-row:hover{background:var(--bg2);}
+.master-task-title{flex:1;font-size:13px;color:var(--text);}
+.master-task-title.done-title{text-decoration:line-through;color:var(--text3);}
+.master-owner{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap;flex-shrink:0;}
+.owner-sam{background:var(--green-light);color:var(--green-dark);}
+.owner-sue{background:var(--pink-light);color:var(--pink-dark);}
+.owner-both{background:var(--blue-light);color:var(--blue-dark);}
+.master-status{font-size:11px;color:var(--text3);flex-shrink:0;min-width:80px;text-align:right;}
 
-  /* Detail actions */
-  .d-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-  .d-actions label { font-size: 11px; color: var(--text3); }
-  select { font-size: 12px; padding: 5px 8px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text); cursor: pointer; font-family: var(--font); }
-  select:focus { outline: none; border-color: var(--green); }
-  .btn { font-size: 12px; padding: 5px 11px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text2); cursor: pointer; font-family: var(--font); }
-  .btn:hover { background: var(--bg3); }
-  .btn-danger { color: #A32D2D; border-color: #F09595; background: none; }
-  .btn-danger:hover { background: #FCEBEB; }
-  .btn-primary { background: var(--green); color: white; border-color: var(--green); font-weight: 500; }
-  .btn-primary:hover { opacity: 0.88; }
-
-  /* Add task form */
-  .add-section { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 18px; margin-top: 1.75rem; }
-  .add-section h3 { font-size: 13px; font-weight: 600; margin-bottom: 14px; color: var(--text2); }
-  .add-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-  input[type=text] { font-size: 13px; padding: 8px 10px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text); font-family: var(--font); width: 100%; }
-  input[type=text]:focus { outline: none; border-color: var(--green); }
-  .add-row { display: flex; gap: 8px; margin-bottom: 8px; }
-  .add-row input { flex: 1; }
-  .checkbox-row { display: flex; gap: 14px; margin-bottom: 12px; flex-wrap: wrap; }
-  .checkbox-row label { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text2); cursor: pointer; }
-  input[type=checkbox] { accent-color: var(--green); cursor: pointer; }
-
-  .status-bar { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); font-size: 12px; padding: 7px 16px; border-radius: 99px; opacity: 0; transition: opacity .25s; pointer-events: none; }
-  .status-bar.show { opacity: 1; }
-  .empty { font-size: 12px; color: var(--text3); padding: 8px 4px; font-style: italic; }
-
-  .sub-progress { font-size: 11px; color: var(--text3); margin-left: 4px; }
+.status-bar{position:fixed;bottom:20px;right:20px;background:var(--text);color:var(--bg);font-size:12px;padding:7px 16px;border-radius:99px;opacity:0;transition:opacity .25s;pointer-events:none;}
+.status-bar.show{opacity:1;}
+.empty{font-size:12px;color:var(--text3);padding:8px 4px;font-style:italic;}
 </style>
 </head>
 <body>
@@ -149,414 +183,929 @@
   <div class="header">
     <h1>Baby prep</h1>
     <p>Due late July 2026</p>
-    <div class="prog-wrap"><div class="prog-fill" id="prog-bar" style="width:0%"></div></div>
-    <div class="prog-label" id="prog-label">Loading...</div>
   </div>
 
-  <div class="section">
-    <div class="section-header"><span class="section-label">Today</span><span class="section-count" id="count-today"></span></div>
-    <div class="drop-zone" id="g-today" data-group="today"></div>
-  </div>
-  <div class="section">
-    <div class="section-header"><span class="section-label">Up next</span><span class="section-count" id="count-upnext"></span></div>
-    <div class="drop-zone" id="g-upnext" data-group="upnext"></div>
-  </div>
-  <div class="section">
-    <div class="section-header"><span class="section-label">On the list</span><span class="section-count" id="count-other"></span></div>
-    <div class="drop-zone" id="g-other" data-group="other"></div>
-  </div>
-  <div class="section">
-    <div class="section-header"><span class="section-label">Done</span><span class="section-count" id="count-done"></span></div>
-    <div class="drop-zone" id="g-done" data-group="done"></div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(&#39;master&#39;)">Master list</button>
+    <button class="tab" onclick="switchTab(&#39;sam&#39;)">Sam's list</button>
+    <button class="tab" onclick="switchTab(&#39;sue&#39;)">Sue's list</button>
   </div>
 
-  <div class="add-section">
-    <h3>Add a task</h3>
-    <div class="add-row">
-      <input type="text" id="new-title" placeholder="Task title..." />
+  <!-- MASTER TAB -->
+  <div class="tab-panel active" id="tab-master">
+    <div id="master-view"><div class="master-cat-group"><div class="master-cat-title">Baby clothes</div><div class="master-row">
+        <div class="master-cb" data-tid="sue1"></div>
+        <span class="master-task-title" data-tid="sue1">After baby shower, order clothes (premie) and diapers</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="sue1" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Coming home</div><div class="master-row">
+        <div class="master-cb" data-tid="b11"></div>
+        <span class="master-task-title" data-tid="b11">Car seat considerations</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="b11" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sam1"></div>
+        <span class="master-task-title" data-tid="sam1">Wash all the baby clothes and sheets</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="sam1" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Finance</div><div class="master-row">
+        <div class="master-cb" data-tid="b4"></div>
+        <span class="master-task-title" data-tid="b4">Baby finances to-do</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="b4" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="c2"></div>
+        <span class="master-task-title" data-tid="c2">Update beneficiaries on all accounts</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="c2" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="c6"></div>
+        <span class="master-task-title" data-tid="c6">Get a will drafted</span>
+        <span class="master-owner owner-both">Both</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="c6" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Food</div><div class="master-row">
+        <div class="master-cb" data-tid="b1"></div>
+        <span class="master-task-title" data-tid="b1">Groceries for bolognese</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="b1" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Hardware</div><div class="master-row">
+        <div class="master-cb" data-tid="a1"></div>
+        <span class="master-task-title" data-tid="a1">Hardware store run</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="a1" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Home</div><div class="master-row">
+        <div class="master-cb" data-tid="b9"></div>
+        <span class="master-task-title" data-tid="b9">AC for our living room</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="b9" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="c5"></div>
+        <span class="master-task-title" data-tid="c5">Baby proofing</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="c5" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb done" data-tid="d2"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="master-task-title done-title" data-tid="d2">Rental unit AC</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"><span class="status-pill status-progress">In progress</span></span>
+        <button class="master-edit-btn" data-tid="d2" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Insurance</div><div class="master-row">
+        <div class="master-cb" data-tid="c1"></div>
+        <span class="master-task-title" data-tid="c1">Add baby to health insurance</span>
+        <span class="master-owner owner-both">Both</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="c1" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sue2"></div>
+        <span class="master-task-title" data-tid="sue2">Add the baby by 30 days of birth</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="sue2" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb done" data-tid="sue3"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="master-task-title done-title" data-tid="sue3">Compare insurance policy</span>
+        <span class="master-owner owner-both">Both</span>
+        <span class="master-status"><span class="status-pill status-done">Done</span></span>
+        <button class="master-edit-btn" data-tid="sue3" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb done" data-tid="sue4"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="master-task-title done-title" data-tid="sue4">Call insurance to see in-network</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="sue4" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">L&amp;D</div><div class="master-row">
+        <div class="master-cb done" data-tid="d1"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="master-task-title done-title" data-tid="d1">Book birth &amp; delivery class</span>
+        <span class="master-owner owner-both">Both</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="d1" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sue5"></div>
+        <span class="master-task-title" data-tid="sue5">Pack the L&amp;D bag</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="sue5" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Learning</div><div class="master-row">
+        <div class="master-cb" data-tid="c8"></div>
+        <span class="master-task-title" data-tid="c8">Skim the dad books</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="c8" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sue6"></div>
+        <span class="master-task-title" data-tid="sue6">Baby naming book</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"><span class="status-pill status-ordered">Ordered</span></span>
+        <button class="master-edit-btn" data-tid="sue6" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sue7"></div>
+        <span class="master-task-title" data-tid="sue7">Birthing class</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"><span class="status-pill status-ordered">Ordered</span></span>
+        <button class="master-edit-btn" data-tid="sue7" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sue8"></div>
+        <span class="master-task-title" data-tid="sue8">Book Massage</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="sue8" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sue9"></div>
+        <span class="master-task-title" data-tid="sue9">Breast feeding class</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"><span class="status-pill status-progress">In progress</span></span>
+        <button class="master-edit-btn" data-tid="sue9" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sue10"></div>
+        <span class="master-task-title" data-tid="sue10">Create a schedule</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="sue10" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Mom</div><div class="master-row">
+        <div class="master-cb" data-tid="b6"></div>
+        <span class="master-task-title" data-tid="b6">Setting up office for Sue's mom</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="b6" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sue11"></div>
+        <span class="master-task-title" data-tid="sue11">Order bed</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="sue11" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Nursery</div><div class="master-row">
+        <div class="master-cb" data-tid="c4"></div>
+        <span class="master-task-title" data-tid="c4">Set up the nursery</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="c4" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sue12"></div>
+        <span class="master-task-title" data-tid="sue12">Curtain</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"><span class="status-pill status-later">Later</span></span>
+        <button class="master-edit-btn" data-tid="sue12" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sam2"></div>
+        <span class="master-task-title" data-tid="sam2">Lighting swap</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"><span class="status-pill status-done">Done</span></span>
+        <button class="master-edit-btn" data-tid="sam2" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Nursing</div><div class="master-row">
+        <div class="master-cb" data-tid="sue13"></div>
+        <span class="master-task-title" data-tid="sue13">Call insurance to order the pump (Spectra S1, Eufy S1)</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"><span class="status-pill status-ordered">Ordered</span></span>
+        <button class="master-edit-btn" data-tid="sue13" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb done" data-tid="sue14"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="master-task-title done-title" data-tid="sue14">Get nursing bra</span>
+        <span class="master-owner owner-sue">Sue</span>
+        <span class="master-status"><span class="status-pill status-done">Done</span></span>
+        <button class="master-edit-btn" data-tid="sue14" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Party</div><div class="master-row">
+        <div class="master-cb" data-tid="a3"></div>
+        <span class="master-task-title" data-tid="a3">Baby shower/house warming prep</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="a3" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Pediatrics</div><div class="master-row">
+        <div class="master-cb" data-tid="a2"></div>
+        <span class="master-task-title" data-tid="a2">Make a shortlist of pediatricians</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="a2" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="c3"></div>
+        <span class="master-task-title" data-tid="c3">Research daycares</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="c3" title="Edit">✎</button></div><div class="master-row">
+        <div class="master-cb" data-tid="sam3"></div>
+        <span class="master-task-title" data-tid="sam3">Tour of the pediatrics</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"><span class="status-pill status-progress">In progress</span></span>
+        <button class="master-edit-btn" data-tid="sam3" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Personal</div><div class="master-row">
+        <div class="master-cb" data-tid="b2"></div>
+        <span class="master-task-title" data-tid="b2">Plan date night — Dinner/Vanguard</span>
+        <span class="master-owner owner-sam">Sam</span>
+        <span class="master-status"></span>
+        <button class="master-edit-btn" data-tid="b2" title="Edit">✎</button></div></div><div class="master-cat-group"><div class="master-cat-title">Vaccine</div><div class="master-row">
+        <div class="master-cb" data-tid="sam4"></div>
+        <span class="master-task-title" data-tid="sam4">Tdap for Sam and his parents</span>
+        <span class="master-owner owner-both">Both</span>
+        <span class="master-status"><span class="status-pill status-progress">In progress</span></span>
+        <button class="master-edit-btn" data-tid="sam4" title="Edit">✎</button></div></div></div>
+    <div class="add-section">
+      <h3>Add a task</h3>
+      <div class="add-row"><input type="text" id="m-new-title" placeholder="Task title..."></div>
+      <div class="add-grid">
+        <select id="m-new-owner"><option value="sam">Sam</option><option value="sue">Sue</option><option value="both">Both</option></select>
+        <input type="text" id="m-new-cat" placeholder="Category (e.g. Nursery)">
+      </div>
+      <div class="add-grid">
+        <select id="m-new-group"><option value="today">Today</option><option value="upnext">Up next</option><option value="other" selected="">On the list</option></select>
+        <input type="text" id="m-new-hint" placeholder="Hint / note (optional)">
+      </div>
+      <div class="checkbox-row">
+        <label><input type="checkbox" id="m-new-hot"> High priority</label>
+        <label><input type="checkbox" id="m-new-deadline"> Hard deadline</label>
+      </div>
+      <button class="btn btn-primary" onclick="addTaskMaster()">Add task</button>
     </div>
-    <div class="add-grid">
-      <select id="new-group">
-        <option value="today">Today</option>
-        <option value="upnext">Up next</option>
-        <option value="other" selected>On the list</option>
-      </select>
-      <input type="text" id="new-hint" placeholder="Hint / note (optional)" />
-    </div>
-    <div class="checkbox-row">
-      <label><input type="checkbox" id="new-hot"> High priority</label>
-      <label><input type="checkbox" id="new-sue"> Sue's lead</label>
-      <label><input type="checkbox" id="new-deadline"> Hard deadline</label>
-    </div>
-    <button class="btn btn-primary" onclick="addTask()">Add task</button>
+  </div>
+
+  <!-- SAM TAB -->
+  <div class="tab-panel" id="tab-sam">
+    <div class="prog-wrap"><div class="prog-fill" id="sam-prog-bar" style="width: 2%;"></div></div>
+    <div class="prog-label" id="sam-prog-label">1 of 41 tasks done</div>
+    <div class="section"><div class="section-header"><span class="section-label">Today</span><span class="section-count" id="sam-count-today">4 tasks</span></div><div class="drop-zone" id="sam-g-today"><div class="card" draggable="true" data-tid="a1">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="a1"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="a1">Hardware store run<span class="sub-progress">0/3</span></span>
+        <div class="badges"><span class="badge b-today">today</span></div>
+        <button class="exp-btn" data-tid="a1"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="a3">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="a3"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="a3">Baby shower/house warming prep<span class="sub-progress">0/4</span></span>
+        <div class="badges"><span class="badge b-today">today</span></div>
+        <button class="exp-btn" data-tid="a3"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="a2">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="a2"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="a2">Make a shortlist of pediatricians</span>
+        <div class="badges"><span class="badge b-today">today</span></div>
+        <button class="exp-btn" data-tid="a2"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="b1">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="b1"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="b1">Groceries for bolognese</span>
+        <div class="badges"><span class="badge b-hot">high priority</span><span class="badge b-today">today</span></div>
+        <button class="exp-btn" data-tid="b1"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div></div></div>
+    <div class="section"><div class="section-header"><span class="section-label">Up next</span><span class="section-count" id="sam-count-upnext">7 tasks</span></div><div class="drop-zone" id="sam-g-upnext"><div class="card" draggable="true" data-tid="b2">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="b2"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="b2">Plan date night — Dinner/Vanguard<span class="sub-progress">1/2</span></span>
+        <div class="badges"><span class="badge b-hot">high priority</span></div>
+        <button class="exp-btn" data-tid="b2"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="b4">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="b4"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="b4">Baby finances to-do<span class="sub-progress">0/5</span></span>
+        <div class="badges"><span class="badge b-hot">high priority</span></div>
+        <button class="exp-btn" data-tid="b4"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="b6">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="b6"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="b6">Setting up office for Sue's mom<span class="sub-progress">0/3</span></span>
+        <div class="badges"><span class="badge b-hot">high priority</span></div>
+        <button class="exp-btn" data-tid="b6"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="b9">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="b9"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="b9">AC for our living room<span class="sub-progress">0/3</span></span>
+        <div class="badges"><span class="badge b-hot">high priority</span></div>
+        <button class="exp-btn" data-tid="b9"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="c4">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="c4"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="c4">Set up the nursery<span class="sub-progress">0/3</span></span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="c4"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="c1">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="c1"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="c1">Add baby to health insurance</span>
+        <div class="badges"><span class="badge b-deadline">hard deadline</span><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="c1"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="b11">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="b11"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="b11">Car seat considerations<span class="sub-progress">0/4</span></span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="b11"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div></div></div>
+    <div class="section"><div class="section-header"><span class="section-label">On the list</span><span class="section-count" id="sam-count-other">9 tasks</span></div><div class="drop-zone" id="sam-g-other"><div class="card" draggable="true" data-tid="c2">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="c2"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="c2">Update beneficiaries on all accounts</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="c2"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="c3">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="c3"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="c3">Research daycares<span class="sub-progress">0/3</span></span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="c3"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="c5">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="c5"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="c5">Baby proofing</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="c5"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="c6">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="c6"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="c6">Get a will drafted</span>
+        <div class="badges"><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="c6"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="c8">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="c8"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="c8">Skim the dad books</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="c8"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sam1">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sam1"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sam1">Wash all the baby clothes and sheets</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sam1"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sam2">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sam2"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sam2">Lighting swap</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sam2"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sam3">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sam3"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sam3">Tour of the pediatrics</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sam3"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sam4">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sam4"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sam4">Tdap for Sam and his parents</span>
+        <div class="badges"><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="sam4"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div></div></div>
+    <div class="section"><div class="section-header"><span class="section-label">Done</span><span class="section-count" id="sam-count-done">2 tasks</span></div><div class="drop-zone" id="sam-g-done"><div class="card done" draggable="true" data-tid="d1">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="d1"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="d1">Book birth &amp; delivery class</span>
+        <div class="badges"><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="d1"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card done" draggable="true" data-tid="sue3">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue3"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue3">Compare insurance policy</span>
+        <div class="badges"><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="sue3"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div></div></div>
+  </div>
+
+  <!-- SUE TAB -->
+  <div class="tab-panel" id="tab-sue">
+    <div class="prog-wrap"><div class="prog-fill pink" id="sue-prog-bar" style="width:0%"></div></div>
+    <div class="prog-label" id="sue-prog-label">0 of 14 tasks done</div>
+    <div class="section"><div class="section-header"><span class="section-label">Today</span><span class="section-count" id="sue-count-today">0 tasks</span></div><div class="drop-zone" id="sue-g-today"><div class="empty">Nothing here</div></div></div>
+    <div class="section"><div class="section-header"><span class="section-label">Up next</span><span class="section-count" id="sue-count-upnext">1 task</span></div><div class="drop-zone" id="sue-g-upnext"><div class="card" draggable="true" data-tid="c1">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="c1"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="c1">Add baby to health insurance</span>
+        <div class="badges"><span class="badge b-deadline">hard deadline</span><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="c1"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div></div></div>
+    <div class="section"><div class="section-header"><span class="section-label">On the list</span><span class="section-count" id="sue-count-other">13 tasks</span></div><div class="drop-zone" id="sue-g-other"><div class="card" draggable="true" data-tid="c6">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="c6"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="c6">Get a will drafted</span>
+        <div class="badges"><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="c6"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue1">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue1"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue1">After baby shower, order clothes (premie) and diapers</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sue1"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue2">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue2"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue2">Add the baby by 30 days of birth</span>
+        <div class="badges"><span class="badge b-deadline">hard deadline</span></div>
+        <button class="exp-btn" data-tid="sue2"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue5">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue5"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue5">Pack the L&amp;D bag</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sue5"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue6">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue6"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue6">Baby naming book</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sue6"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue7">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue7"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue7">Birthing class</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sue7"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue8">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue8"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue8">Book Massage</span>
+        <div class="badges"><span class="badge b-hot">high priority</span></div>
+        <button class="exp-btn" data-tid="sue8"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue9">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue9"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue9">Breast feeding class</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sue9"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue10">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue10"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue10">Create a schedule</span>
+        <div class="badges"><span class="badge b-hot">high priority</span></div>
+        <button class="exp-btn" data-tid="sue10"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue11">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue11"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue11">Order bed</span>
+        <div class="badges"><span class="badge b-hot">high priority</span></div>
+        <button class="exp-btn" data-tid="sue11"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue12">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue12"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue12">Curtain</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sue12"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sue13">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue13"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue13">Call insurance to order the pump (Spectra S1, Eufy S1)</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sue13"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card" draggable="true" data-tid="sam4">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sam4"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sam4">Tdap for Sam and his parents</span>
+        <div class="badges"><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="sam4"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div></div></div>
+    <div class="section"><div class="section-header"><span class="section-label">Done</span><span class="section-count" id="sue-count-done">5 tasks</span></div><div class="drop-zone" id="sue-g-done"><div class="card done" draggable="true" data-tid="d1">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="d1"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="d1">Book birth &amp; delivery class</span>
+        <div class="badges"><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="d1"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card done" draggable="true" data-tid="d2">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="d2"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="d2">Rental unit AC</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="d2"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card done" draggable="true" data-tid="sue3">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue3"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue3">Compare insurance policy</span>
+        <div class="badges"><span class="badge b-owner-both">both</span></div>
+        <button class="exp-btn" data-tid="sue3"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card done" draggable="true" data-tid="sue4">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue4"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue4">Call insurance to see in-network</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sue4"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div><div class="card done" draggable="true" data-tid="sue14">
+      <div class="card-main">
+        <div class="grip"><svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"></circle><circle cx="7.5" cy="3" r="1.5"></circle><circle cx="2.5" cy="8" r="1.5"></circle><circle cx="7.5" cy="8" r="1.5"></circle><circle cx="2.5" cy="13" r="1.5"></circle><circle cx="7.5" cy="13" r="1.5"></circle></svg></div>
+        <div class="cb" data-tid="sue14"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <span class="t-title" data-tid="sue14">Get nursing bra</span>
+        <div class="badges"></div>
+        <button class="exp-btn" data-tid="sue14"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div></div></div></div>
   </div>
 </div>
 
 <div class="status-bar" id="status">Saved</div>
 
 <script>
-const KEY = 'baby-prep-v6';
+const KEY = 'baby-prep-master-v1';
 const GROUPS = ['today','upnext','other','done'];
 const GROUP_LABELS = {today:'Today',upnext:'Up next',other:'On the list',done:'Done'};
 
+// Single source of truth — all tasks, each with owner: 'sam'|'sue'|'both'
 const DEFAULTS = [
-  {id:'a1',done:false,group:'today',hot:false,sue:false,deadline:false,title:'Hardware store run',hint:'',notes:'',subtasks:[],open:false},
-  {id:'a2',done:false,group:'today',hot:false,sue:false,deadline:false,title:'Make a shortlist of pediatricians',hint:'Park Slope practices fill fast — shortlist 4–5, check insurance, start calling.',notes:'',subtasks:[],open:false},
-  {id:'a3',done:false,group:'today',hot:false,sue:false,deadline:false,title:'Get catering squared away for shower/housewarming',hint:'Narrow down caterers or food style, get at least 2 quotes.',notes:'',subtasks:[],open:false},
-  {id:'b1',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Groceries for bolognese',hint:'Guests tomorrow night.',notes:'',subtasks:[],open:false},
-  {id:'b2',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Plan date night — Village Vanguard',hint:'Aiming for 6/6 or 6/7.',notes:'',subtasks:[{id:'b2s1',done:false,label:'Book Village Vanguard tickets'},{id:'b2s2',done:false,label:'Make a dinner reservation nearby'}],open:false},
-  {id:'b3',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Look into savings options for the baby',hint:'529 college savings plan (nysaves.org) and UTMA/custodial account research.',notes:'',subtasks:[{id:'b3s1',done:false,label:'Open 529 at nysaves.org'},{id:'b3s2',done:false,label:'Research UTMA/custodial accounts'}],open:false},
-  {id:'b4',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Baby fund — research HYSAs',hint:'Fidelity, Marcus by Goldman, or Ally. Aim for $5k–8k.',notes:'',subtasks:[],open:false},
-  {id:'b5',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Check dependent care FSA',hint:'Check both Area 23 and Sue\'s employer. $5k/year pre-tax toward childcare.',notes:'',subtasks:[{id:'b5s1',done:false,label:'Check Area 23 FSA options'},{id:'b5s2',done:false,label:'Check Sue\'s employer FSA'}],open:false},
-  {id:'b6',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Buy fold-out bed for Sue\'s mom (IKEA)',hint:'Already know which one — just order or pick up.',notes:'',subtasks:[],open:false},
-  {id:'b7',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Buy clothing rack for Sue\'s mom\'s room',hint:'Inexpensive freestanding rack — IKEA or Amazon.',notes:'',subtasks:[],open:false},
-  {id:'b8',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Buy cheap stools for the party',hint:'Rent (~$2–4/each) vs. buy IKEA MARIUS ($15/each).',notes:'',subtasks:[],open:false},
-  {id:'b9',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'AC for our living room',hint:'Separate from rental unit AC. Figure out sizing before summer.',notes:'',subtasks:[],open:false},
-  {id:'b10',done:false,group:'upnext',hot:true,sue:false,deadline:false,title:'Double dresser for nursery',hint:'Measure the space first.',notes:'',subtasks:[],open:false},
-  {id:'b11',done:false,group:'upnext',hot:false,sue:false,deadline:false,title:'Car seat considerations',hint:'Infant vs. convertible — lean infant given baby may be small. Never buy used. Install before 35 weeks. Book free inspection (NYPD/fire station).',notes:'',subtasks:[{id:'b11s1',done:false,label:'Decide: infant seat vs. convertible'},{id:'b11s2',done:false,label:'Purchase car seat'},{id:'b11s3',done:false,label:'Install before 35 weeks'},{id:'b11s4',done:false,label:'Book free inspection (NYPD/fire station)'}],open:false},
-  {id:'c1',done:false,group:'other',hot:false,sue:false,deadline:true,title:'Add baby to health insurance',hint:'Hard 30-day deadline from birth. Missing it means waiting for open enrollment.',notes:'',subtasks:[],open:false},
-  {id:'c2',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Update beneficiaries on all accounts',hint:'Retirement accounts, life insurance, everything. Do before birth.',notes:'',subtasks:[],open:false},
-  {id:'c3',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Research daycares',hint:'Waitlists in Park Slope can be 1–2 years. Start now.',notes:'',subtasks:[{id:'c3s1',done:false,label:'Ask around for recommendations'},{id:'c3s2',done:false,label:'Tour at least 2–3 options'},{id:'c3s3',done:false,label:'Get on waitlists'}],open:false},
-  {id:'c4',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Set up the nursery',hint:'',notes:'',subtasks:[{id:'c4s1',done:false,label:'Figure out decorating'},{id:'c4s2',done:false,label:'Build the crib (already bought)'},{id:'c4s3',done:false,label:'Get double dresser'}],open:false},
-  {id:'c5',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Baby proofing',hint:'Not urgent until baby is mobile — around 6–8 months post-birth.',notes:'',subtasks:[],open:false},
-  {id:'c6',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Get a will drafted',hint:'Trust & Will or Fabric online (~$100–200). Designates guardian if something happens to both of you.',notes:'',subtasks:[],open:false},
-  {id:'c7',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Look into term life insurance',hint:'Cheapest in your 30s. A 20-year term policy is surprisingly affordable.',notes:'',subtasks:[],open:false},
-  {id:'c8',done:false,group:'other',hot:false,sue:false,deadline:false,title:'Skim the dad books',hint:'The New Father: read birth + first-month chapters at minimum.',notes:'',subtasks:[],open:false},
-  {id:'c9',done:false,group:'other',hot:false,sue:true,deadline:false,title:'Update finances & insurance (broader)',hint:'Sue\'s lead — revisit household budget, check disability insurance.',notes:'',subtasks:[],open:false},
-  {id:'d1',done:true,group:'done',hot:false,sue:false,deadline:false,title:'Book birth & delivery class',hint:'Lamaze class booked.',notes:'',subtasks:[],open:false},
-  {id:'d2',done:true,group:'done',hot:false,sue:true,deadline:false,title:'Rental unit AC',hint:'Sue\'s lead, in progress.',notes:'',subtasks:[],open:false},
+  // Sam's tasks (from live data)
+  {id:'a1',done:false,group:'today',hot:false,deadline:false,owner:'sam',cat:'Hardware',title:'Hardware store run',hint:'',notes:'',subtasks:[{id:'s1',done:false,label:'Spackle'},{id:'s2',done:false,label:'Stronger power strip for AC'},{id:'s3',done:false,label:'Chat through bracket options for living room AC'}],open:false},
+  {id:'a3',done:false,group:'today',hot:false,deadline:false,owner:'sam',cat:'Party',title:'Baby shower/house warming prep',hint:'Narrow down caterers or food style, get at least 2 quotes.',notes:'',subtasks:[{id:'s4',done:false,label:'Get catering squared away'},{id:'s5',done:false,label:'Stackable stools'},{id:'s6',done:false,label:'Buy napkins, paper plates, plastic silverware'},{id:'s7',done:false,label:'Consider some kind of folding table?'}],open:false},
+  {id:'a2',done:false,group:'today',hot:false,deadline:false,owner:'sam',cat:'Pediatrics',title:'Make a shortlist of pediatricians',hint:'Park Slope practices fill fast — shortlist 4–5, check insurance, start calling.',notes:'',subtasks:[],open:false},
+  {id:'b1',done:false,group:'today',hot:true,deadline:false,owner:'sam',cat:'Food',title:'Groceries for bolognese',hint:'Guests tomorrow night.',notes:'',subtasks:[],open:false},
+  {id:'b2',done:false,group:'upnext',hot:true,deadline:false,owner:'sam',cat:'Personal',title:'Plan date night — Dinner/Vanguard',hint:'Aiming for 6/6 or 6/7.',notes:'',subtasks:[{id:'b2s1',done:true,label:'Book Village Vanguard tickets'},{id:'b2s2',done:false,label:'Make dinny res for 6/5'}],open:false},
+  {id:'b4',done:false,group:'upnext',hot:true,deadline:false,owner:'sam',cat:'Finance',title:'Baby finances to-do',hint:'',notes:'',subtasks:[{id:'f1',done:false,label:'Educational savings account 529 at NYSaves.com'},{id:'f2',done:false,label:'Research UTMA/Custodial accounts'},{id:'f3',done:false,label:'Open up HYSA for baby expenses and fund $10k'},{id:'f4',done:false,label:'Check dependent care FSA with Omnicom/Roku'},{id:'f5',done:false,label:'Look into term life insurance'}],open:false},
+  {id:'b6',done:false,group:'upnext',hot:true,deadline:false,owner:'sam',cat:'Mom',title:'Setting up office for Sue\'s mom',hint:'',notes:'',subtasks:[{id:'m1',done:false,label:'Buy Ikea Fold-Out Bed'},{id:'m2',done:false,label:'Buy a clothing rack'},{id:'m3',done:false,label:'Think about getting her a credit card?'}],open:false},
+  {id:'b9',done:false,group:'upnext',hot:true,deadline:false,owner:'sam',cat:'Home',title:'AC for our living room',hint:'Separate from rental unit AC.',notes:'',subtasks:[{id:'ac1',done:false,label:'Ask hardware store guy about living room bracket'},{id:'ac2',done:false,label:'Find a good air conditioner (FB marketplace or new)'},{id:'ac3',done:false,label:'Pull the trigger on something'}],open:false},
+  {id:'c4',done:false,group:'upnext',hot:false,deadline:false,owner:'sam',cat:'Nursery',title:'Set up the nursery',hint:'',notes:'',subtasks:[{id:'n1',done:false,label:'Figure out decorating'},{id:'n2',done:false,label:'Build the crib (already bought)'},{id:'n3',done:false,label:'Get double dresser'}],open:false},
+  {id:'c1',done:false,group:'upnext',hot:false,deadline:true,owner:'both',cat:'Insurance',title:'Add baby to health insurance',hint:'Hard 30-day deadline from birth.',notes:'',subtasks:[],open:false},
+  {id:'b11',done:false,group:'upnext',hot:false,deadline:false,owner:'sam',cat:'Coming home',title:'Car seat considerations',hint:'Infant vs. convertible — lean infant. Never buy used. Install before 35 weeks.',notes:'',subtasks:[{id:'cs1',done:false,label:'Decide: infant seat vs. convertible'},{id:'cs2',done:false,label:'Purchase car seat'},{id:'cs3',done:false,label:'Install before 35 weeks'},{id:'cs4',done:false,label:'Book free inspection (NYPD/fire station)'}],open:false},
+  {id:'c2',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Finance',title:'Update beneficiaries on all accounts',hint:'Retirement accounts, life insurance, everything.',notes:'',subtasks:[],open:false},
+  {id:'c3',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Pediatrics',title:'Research daycares',hint:'Waitlists in Park Slope can be 1–2 years.',notes:'',subtasks:[{id:'d1',done:false,label:'Ask around for recommendations'},{id:'d2',done:false,label:'Tour at least 2–3 options'},{id:'d3',done:false,label:'Get on waitlists'}],open:false},
+  {id:'c5',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Home',title:'Baby proofing',hint:'Not urgent until baby is mobile — 6–8 months post-birth.',notes:'',subtasks:[],open:false},
+  {id:'c6',done:false,group:'other',hot:false,deadline:false,owner:'both',cat:'Finance',title:'Get a will drafted',hint:'Trust & Will or Fabric online (~$100–200).',notes:'',subtasks:[],open:false},
+  {id:'c8',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Learning',title:'Skim the dad books',hint:'The New Father: read birth + first-month chapters at minimum.',notes:'',subtasks:[],open:false},
+  {id:'d1',done:true,group:'done',hot:false,deadline:false,owner:'both',cat:'L&D',title:'Book birth & delivery class',hint:'Lamaze class booked.',notes:'',subtasks:[],open:false},
+  {id:'d2',done:true,group:'done',hot:false,deadline:false,owner:'sue',cat:'Home',title:'Rental unit AC',hint:'Sue\'s lead, in progress.',notes:'',subtasks:[],open:false},
+  // Sue's tasks
+  {id:'sue1',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Baby clothes',title:'After baby shower, order clothes (premie) and diapers',hint:'',notes:'',subtasks:[],open:false},
+  {id:'sue2',done:false,group:'other',hot:false,deadline:true,owner:'sue',cat:'Insurance',title:'Add the baby by 30 days of birth',hint:'Hard deadline — 30 days from birth.',notes:'',subtasks:[],open:false},
+  {id:'sue3',done:true,group:'done',hot:false,deadline:false,owner:'both',cat:'Insurance',title:'Compare insurance policy',hint:'Done; Add to Sue\'s.',notes:'',subtasks:[],open:false},
+  {id:'sue4',done:true,group:'done',hot:false,deadline:false,owner:'sue',cat:'Insurance',title:'Call insurance to see in-network',hint:'',notes:'',subtasks:[],open:false},
+  {id:'sue5',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'L&D',title:'Pack the L&D bag',hint:'',notes:'',subtasks:[],open:false},
+  {id:'sue6',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Learning',title:'Baby naming book',hint:'Ordered.',notes:'',subtasks:[],open:false},
+  {id:'sue7',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Learning',title:'Birthing class',hint:'Ordered; 5/30.',notes:'',subtasks:[],open:false},
+  {id:'sue8',done:false,group:'other',hot:true,deadline:false,owner:'sue',cat:'Learning',title:'Book Massage',hint:'',notes:'',subtasks:[],open:false},
+  {id:'sue9',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Learning',title:'Breast feeding class',hint:'In progress.',notes:'',subtasks:[],open:false},
+  {id:'sue10',done:false,group:'other',hot:true,deadline:false,owner:'sue',cat:'Learning',title:'Create a schedule',hint:'',notes:'',subtasks:[],open:false},
+  {id:'sue11',done:false,group:'other',hot:true,deadline:false,owner:'sue',cat:'Mom',title:'Order bed',hint:'',notes:'',subtasks:[],open:false},
+  {id:'sue12',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Nursery',title:'Curtain',hint:'Later.',notes:'',subtasks:[],open:false},
+  {id:'sue13',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Nursing',title:'Call insurance to order the pump (Spectra S1, Eufy S1)',hint:'Ordered.',notes:'',subtasks:[],open:false},
+  {id:'sue14',done:true,group:'done',hot:false,deadline:false,owner:'sue',cat:'Nursing',title:'Get nursing bra',hint:'Done.',notes:'',subtasks:[],open:false},
+  {id:'sam1',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Coming home',title:'Wash all the baby clothes and sheets',hint:'',notes:'',subtasks:[],open:false},
+  {id:'sam2',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Nursery',title:'Lighting swap',hint:'Done.',notes:'',subtasks:[],open:false},
+  {id:'sam3',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Pediatrics',title:'Tour of the pediatrics',hint:'In progress.',notes:'',subtasks:[],open:false},
+  {id:'sam4',done:false,group:'other',hot:false,deadline:false,owner:'both',cat:'Vaccine',title:'Tdap for Sam and his parents',hint:'In progress.',notes:'',subtasks:[],open:false},
 ];
 
 let tasks = [];
 let dragId = null;
 let saveTimer = null;
+let activeTab = 'master';
 
 function load() {
-  try {
-    const raw = localStorage.getItem(KEY);
-    if (raw) tasks = JSON.parse(raw);
-    else throw new Error();
-  } catch(e) {
-    tasks = JSON.parse(JSON.stringify(DEFAULTS));
-    persist(true);
-  }
-  render(); updateProgress();
+  try { const r = localStorage.getItem(KEY); tasks = r ? JSON.parse(r) : JSON.parse(JSON.stringify(DEFAULTS)); }
+  catch(e) { tasks = JSON.parse(JSON.stringify(DEFAULTS)); }
+  render();
 }
 
 function persist(silent=false) {
   localStorage.setItem(KEY, JSON.stringify(tasks));
-  if (!silent) showStatus('Saved');
+  if(!silent) showStatus('Saved');
 }
-function scheduleSave() { clearTimeout(saveTimer); saveTimer = setTimeout(()=>persist(), 700); }
+function scheduleSave() { clearTimeout(saveTimer); saveTimer = setTimeout(()=>persist(),700); }
 function showStatus(msg) {
-  const el = document.getElementById('status');
-  el.textContent = msg; el.classList.add('show');
-  setTimeout(()=>el.classList.remove('show'), 1800);
+  const el=document.getElementById('status');
+  el.textContent=msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),1800);
 }
 
-function countItems() {
-  let total=0, done=0;
-  tasks.filter(t=>t.group!=='done').forEach(t=>{
-    if (t.subtasks.length) { t.subtasks.forEach(s=>{ total++; if(s.done) done++; }); }
-    else { total++; if(t.done) done++; }
+const GRIP=`<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"/><circle cx="7.5" cy="3" r="1.5"/><circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/><circle cx="2.5" cy="13" r="1.5"/><circle cx="7.5" cy="13" r="1.5"/></svg>`;
+const CHK=`<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const MCHK=`<svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const CHEVD=`<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const CHEVU=`<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 9L7 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const PLUS=`<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+const X=`<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+
+function getOwnerTasks(owner) {
+  if(owner==='sam') return tasks.filter(t=>t.owner==='sam'||t.owner==='both');
+  if(owner==='sue') return tasks.filter(t=>t.owner==='sue'||t.owner==='both');
+  return tasks;
+}
+
+function updateProgress(owner) {
+  const subset = getOwnerTasks(owner).filter(t=>t.group!=='done');
+  let total=0,done=0;
+  subset.forEach(t=>{
+    if(t.subtasks.length){t.subtasks.forEach(s=>{total++;if(s.done)done++;});}
+    else{total++;if(t.done)done++;}
   });
-  return {total, done};
-}
-
-function updateProgress() {
-  const {total, done} = countItems();
-  const pct = total ? Math.round(done/total*100) : 0;
-  document.getElementById('prog-bar').style.width = pct+'%';
-  document.getElementById('prog-label').textContent = `${done} of ${total} tasks done`;
-  GROUPS.forEach(g => {
-    const el = document.getElementById('count-'+g);
-    if (el) { const n=tasks.filter(t=>t.group===g).length; el.textContent=n+' task'+(n!==1?'s':''); }
+  const pct=total?Math.round(done/total*100):0;
+  document.getElementById(owner+'-prog-bar').style.width=pct+'%';
+  document.getElementById(owner+'-prog-label').textContent=`${done} of ${total} tasks done`;
+  GROUPS.forEach(g=>{
+    const el=document.getElementById(owner+'-count-'+g);
+    if(el){const n=getOwnerTasks(owner).filter(t=>t.group===g).length;el.textContent=n+' task'+(n!==1?'s':'');}
   });
 }
 
-const GRIP = `<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor">
-  <circle cx="2.5" cy="3" r="1.5"/><circle cx="7.5" cy="3" r="1.5"/>
-  <circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/>
-  <circle cx="2.5" cy="13" r="1.5"/><circle cx="7.5" cy="13" r="1.5"/>
-</svg>`;
-const CHK = `<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-const MCHK = `<svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-const CHEVD = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-const CHEVU = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 9L7 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-const PLUS = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
-const X = `<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
-
-function renderGroup(group) {
-  const el = document.getElementById('g-'+group);
-  el.innerHTML = '';
-  const subset = tasks.filter(t=>t.group===group);
-  if (!subset.length) { el.innerHTML='<div class="empty">Nothing here</div>'; return; }
-
-  subset.forEach(t => {
-    const allSubDone = t.subtasks.length>0 && t.subtasks.every(s=>s.done);
-    const isDone = group==='done' || t.done || (t.subtasks.length>0 && allSubDone);
-    const subDoneCount = t.subtasks.filter(s=>s.done).length;
-
-    let badges = '';
-    if (t.hot && !isDone) badges += '<span class="badge b-hot">high priority</span>';
-    if (group==='today' && !isDone) badges += '<span class="badge b-today">today</span>';
-    if (t.deadline && !isDone) badges += '<span class="badge b-deadline">hard deadline</span>';
-    if (t.sue) badges += '<span class="badge b-sue">sue\'s lead</span>';
-
-    let subProgress = '';
-    if (t.subtasks.length > 0) {
-      subProgress = `<span class="sub-progress">${subDoneCount}/${t.subtasks.length}</span>`;
-    }
-
-    let detailHtml = '';
-    if (t.open) {
-      let subsHtml = '';
-      if (t.subtasks.length) {
-        subsHtml = '<div class="subtasks-list">';
-        t.subtasks.forEach(s => {
-          subsHtml += `<div class="sub${s.done?' done':''}" data-tid="${t.id}" data-sid="${s.id}">
-            <div class="sub-cb">${s.done ? MCHK : ''}</div>
-            <span class="sub-lbl">${s.label}</span>
-            <button class="sub-edit-btn" data-tid="${t.id}" data-sid="${s.id}" title="Rename">&#9998;</button>
-            <button class="sub-del" data-tid="${t.id}" data-sid="${s.id}" title="Remove">${X}</button>
-          </div>`;
-        });
-        subsHtml += '</div>';
-      }
-
-      const otherGroups = GROUPS.filter(g=>g!==group);
-      const moveOpts = otherGroups.map(g=>`<option value="${g}">${GROUP_LABELS[g]}</option>`).join('');
-
-      detailHtml = `<div class="detail">
-        <div class="rename-row">
-          <label>Task name</label>
-          <input type="text" class="rename-input" data-tid="${t.id}" value="${t.title.replace(/"/g,'&quot;')}" />
-          <button class="rename-save-btn" data-tid="${t.id}">Save</button>
-        </div>
-        ${t.hint ? `<div class="hint">${t.hint}</div>` : ''}
-        ${subsHtml}
-        <div class="add-sub-row">
-          <input type="text" class="sub-input" data-tid="${t.id}" placeholder="Add a subtask..."/>
-          <button class="add-sub-btn" data-tid="${t.id}">${PLUS} Add</button>
-        </div>
-        <div class="notes-area">
-          <label>Notes</label>
-          <textarea data-tid="${t.id}" rows="3" placeholder="Add notes...">${t.notes||''}</textarea>
-        </div>
-        <div class="d-actions">
-          <label>Move to:</label>
-          <select class="move-sel" data-tid="${t.id}"><option value="">— select —</option>${moveOpts}</select>
-          <button class="btn btn-danger" data-del="${t.id}">Delete task</button>
-        </div>
+function makeDetailHtml(t, group) {
+  let subsHtml='';
+  if(t.subtasks.length){
+    subsHtml='<div class="subtasks-list">';
+    t.subtasks.forEach(s=>{
+      subsHtml+=`<div class="sub${s.done?' done':''}" data-tid="${t.id}" data-sid="${s.id}">
+        <div class="sub-cb">${s.done?MCHK:''}</div>
+        <span class="sub-lbl">${s.label}</span>
+        <button class="sub-edit-btn" data-tid="${t.id}" data-sid="${s.id}">&#9998;</button>
+        <button class="sub-del" data-tid="${t.id}" data-sid="${s.id}">${X}</button>
       </div>`;
-    }
+    });
+    subsHtml+='</div>';
+  }
+  const otherGroups=GROUPS.filter(g=>g!==group);
+  const moveOpts=otherGroups.map(g=>`<option value="${g}">${GROUP_LABELS[g]}</option>`).join('');
+  return `<div class="detail">
+    <div class="field-row"><label>Task name</label><input type="text" class="rename-input" data-tid="${t.id}" value="${t.title.replace(/"/g,'&quot;')}"/><button class="rename-save-btn" data-tid="${t.id}">Save</button></div>
+    <div class="field-row"><label>Owner</label><select class="owner-sel" data-tid="${t.id}"><option value="sam"${t.owner==='sam'?' selected':''}>Sam</option><option value="sue"${t.owner==='sue'?' selected':''}>Sue</option><option value="both"${t.owner==='both'?' selected':''}>Both</option></select></div>
+    <div class="field-row"><label>Category</label><input type="text" class="cat-input" data-tid="${t.id}" value="${(t.cat||'').replace(/"/g,'&quot;')}"/><button class="cat-save-btn" data-tid="${t.id}">Save</button></div>
+    ${t.hint?`<div class="hint">${t.hint}</div>`:''}
+    ${subsHtml}
+    <div class="add-sub-row"><input type="text" class="sub-input" data-tid="${t.id}" placeholder="Add a subtask..."/><button class="add-sub-btn" data-tid="${t.id}">${PLUS} Add</button></div>
+    <div class="notes-area"><label>Notes</label><textarea data-tid="${t.id}" rows="3" placeholder="Add notes...">${t.notes||''}</textarea></div>
+    <div class="d-actions">
+      <label>Move to:</label>
+      <select class="move-sel" data-tid="${t.id}"><option value="">— select —</option>${moveOpts}</select>
+      <button class="btn btn-danger" data-del="${t.id}">Delete task</button>
+    </div>
+  </div>`;
+}
 
-    const card = document.createElement('div');
-    card.className = 'card'+(isDone?' done':'');
+function bindCardEvents(card, t, group) {
+  card.addEventListener('dragstart',e=>{dragId=t.id;e.dataTransfer.effectAllowed='move';setTimeout(()=>card.classList.add('dragging'),0);});
+  card.addEventListener('dragend',()=>{card.classList.remove('dragging');document.querySelectorAll('.drag-over,.drag-active').forEach(x=>{x.classList.remove('drag-over');x.classList.remove('drag-active');});dragId=null;});
+  card.addEventListener('dragover',e=>{e.preventDefault();if(dragId&&dragId!==t.id){document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));card.classList.add('drag-over');}});
+  card.addEventListener('dragleave',()=>card.classList.remove('drag-over'));
+  card.addEventListener('drop',e=>{
+    e.preventDefault();e.stopPropagation();
+    if(!dragId||dragId===t.id) return;
+    const fi=tasks.findIndex(x=>x.id===dragId),ti=tasks.findIndex(x=>x.id===t.id);
+    const [moved]=tasks.splice(fi,1);
+    moved.group=group;moved.done=group==='done';
+    tasks.splice(ti,0,moved);
+    render();persist();
+  });
+
+  card.querySelector('.cb').addEventListener('click',e=>{
+    e.stopPropagation();
+    const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);
+    if(!task||task.subtasks.length>0||group==='done') return;
+    task.done=!task.done;
+    if(task.done)task.group='done';
+    render();persist();
+  });
+  card.querySelector('.t-title').addEventListener('click',e=>{const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);if(task){task.open=!task.open;render();}});
+  card.querySelector('.exp-btn').addEventListener('click',e=>{e.stopPropagation();const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);if(task){task.open=!task.open;render();}});
+
+  const rsb=card.querySelector('.rename-save-btn');
+  if(rsb){
+    const ri=card.querySelector('.rename-input');
+    const doR=()=>{const v=ri.value.trim();const task=tasks.find(x=>x.id===rsb.dataset.tid);if(task&&v){task.title=v;render();persist();}};
+    rsb.addEventListener('click',e=>{e.stopPropagation();doR();});
+    ri.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doR();}});
+    ri.addEventListener('click',e=>e.stopPropagation());
+  }
+  const csb=card.querySelector('.cat-save-btn');
+  if(csb){
+    const ci=card.querySelector('.cat-input');
+    const doC=()=>{const v=ci.value.trim();const task=tasks.find(x=>x.id===csb.dataset.tid);if(task){task.cat=v;render();persist();}};
+    csb.addEventListener('click',e=>{e.stopPropagation();doC();});
+    ci.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doC();}});
+    ci.addEventListener('click',e=>e.stopPropagation());
+  }
+  const os=card.querySelector('.owner-sel');
+  if(os){
+    os.addEventListener('change',()=>{const task=tasks.find(x=>x.id===os.dataset.tid);if(task){task.owner=os.value;render();persist();}});
+    os.addEventListener('click',e=>e.stopPropagation());
+  }
+
+  card.querySelectorAll('.sub').forEach(row=>{
+    row.addEventListener('click',e=>{
+      if(e.target.closest('.sub-del')||e.target.closest('.sub-edit-btn')) return;
+      e.stopPropagation();
+      const task=tasks.find(x=>x.id===row.dataset.tid);
+      const sub=task&&task.subtasks.find(x=>x.id===row.dataset.sid);
+      if(sub){sub.done=!sub.done;render();scheduleSave();}
+    });
+  });
+  card.querySelectorAll('.sub-edit-btn').forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const task=tasks.find(x=>x.id===btn.dataset.tid);
+      const sub=task&&task.subtasks.find(x=>x.id===btn.dataset.sid);
+      if(!sub) return;
+      const v=prompt('Rename subtask:',sub.label);
+      if(v&&v.trim()){sub.label=v.trim();render();persist();}
+    });
+  });
+  card.querySelectorAll('.sub-del').forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const task=tasks.find(x=>x.id===btn.dataset.tid);
+      if(task){task.subtasks=task.subtasks.filter(s=>s.id!==btn.dataset.sid);render();persist();}
+    });
+  });
+
+  const asb=card.querySelector('.add-sub-btn');
+  if(asb){
+    const asi=card.querySelector('.sub-input');
+    const doA=()=>{const v=asi.value.trim();if(!v)return;const task=tasks.find(x=>x.id===asb.dataset.tid);if(task){task.subtasks.push({id:'s'+Date.now(),done:false,label:v});render();persist();}};
+    asb.addEventListener('click',e=>{e.stopPropagation();doA();});
+    asi.addEventListener('keydown',e=>{if(e.key==='Enter'){e.stopPropagation();doA();}});
+    asi.addEventListener('click',e=>e.stopPropagation());
+  }
+
+  const ta=card.querySelector('textarea');
+  if(ta){
+    ta.addEventListener('input',()=>{const task=tasks.find(x=>x.id===ta.dataset.tid);if(task){task.notes=ta.value;scheduleSave();}});
+    ta.addEventListener('click',e=>e.stopPropagation());
+  }
+  const ms=card.querySelector('.move-sel');
+  if(ms){
+    ms.addEventListener('change',()=>{if(!ms.value)return;const task=tasks.find(x=>x.id===ms.dataset.tid);if(task){task.group=ms.value;task.open=false;task.done=ms.value==='done';render();persist();}});
+    ms.addEventListener('click',e=>e.stopPropagation());
+  }
+  const db=card.querySelector('[data-del]');
+  if(db){
+    db.addEventListener('click',e=>{
+      e.stopPropagation();
+      if(!confirm('Delete "'+t.title+'"?')) return;
+      tasks=tasks.filter(x=>x.id!==db.dataset.del);
+      render();persist();
+    });
+  }
+}
+
+function renderOwnerGroup(owner, group) {
+  const el=document.getElementById(owner+'-g-'+group);
+  if(!el) return;
+  el.innerHTML='';
+  const subset=getOwnerTasks(owner).filter(t=>t.group===group);
+  if(!subset.length){el.innerHTML='<div class="empty">Nothing here</div>';return;}
+
+  subset.forEach(t=>{
+    const allSubDone=t.subtasks.length>0&&t.subtasks.every(s=>s.done);
+    const isDone=group==='done'||t.done||(t.subtasks.length>0&&allSubDone);
+    const subDoneCount=t.subtasks.filter(s=>s.done).length;
+    const subProgress=t.subtasks.length>0?`<span class="sub-progress">${subDoneCount}/${t.subtasks.length}</span>`:'';
+    let badges='';
+    if(t.hot&&!isDone) badges+='<span class="badge b-hot">high priority</span>';
+    if(group==='today'&&!isDone) badges+='<span class="badge b-today">today</span>';
+    if(t.deadline&&!isDone) badges+='<span class="badge b-deadline">hard deadline</span>';
+    if(t.owner==='both') badges+=`<span class="badge b-owner-both">both</span>`;
+
+    const card=document.createElement('div');
+    card.className='card'+(isDone?' done':'');
     card.setAttribute('draggable','true');
-    card.dataset.tid = t.id;
-    card.innerHTML = `
+    card.dataset.tid=t.id;
+    card.innerHTML=`
       <div class="card-main">
         <div class="grip">${GRIP}</div>
         <div class="cb" data-tid="${t.id}">${CHK}</div>
         <span class="t-title" data-tid="${t.id}">${t.title}${subProgress}</span>
         <div class="badges">${badges}</div>
-        <button class="exp-btn" data-tid="${t.id}">${t.open ? CHEVU : CHEVD}</button>
-      </div>
-      ${detailHtml}
-    `;
+        <button class="exp-btn" data-tid="${t.id}">${t.open?CHEVU:CHEVD}</button>
+      </div>${t.open?makeDetailHtml(t,group):''}`;
 
-    // Drag
-    card.addEventListener('dragstart', e => {
-      dragId = t.id;
-      e.dataTransfer.effectAllowed = 'move';
-      setTimeout(()=>card.classList.add('dragging'), 0);
-    });
-    card.addEventListener('dragend', () => {
-      card.classList.remove('dragging');
-      document.querySelectorAll('.drag-over,.drag-active').forEach(x=>{x.classList.remove('drag-over');x.classList.remove('drag-active');});
-      dragId = null;
-    });
-    card.addEventListener('dragover', e => {
-      e.preventDefault();
-      if (dragId && dragId!==t.id) {
-        document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));
-        card.classList.add('drag-over');
-      }
-    });
-    card.addEventListener('dragleave', ()=>card.classList.remove('drag-over'));
-    card.addEventListener('drop', e => {
-      e.preventDefault(); e.stopPropagation();
-      if (!dragId || dragId===t.id) return;
-      const fi = tasks.findIndex(x=>x.id===dragId);
-      const ti = tasks.findIndex(x=>x.id===t.id);
-      const [moved] = tasks.splice(fi,1);
-      moved.group = group;
-      moved.done = group==='done';
-      tasks.splice(ti,0,moved);
-      render(); updateProgress(); persist();
-    });
-
-    // Checkbox
-    card.querySelector('.cb').addEventListener('click', e => {
-      e.stopPropagation();
-      const task = tasks.find(x=>x.id===e.currentTarget.dataset.tid);
-      if (!task || task.subtasks.length>0 || group==='done') return;
-      task.done = !task.done;
-      if (task.done) task.group = 'done';
-      render(); updateProgress(); persist();
-    });
-
-    // Expand on click
-    card.querySelector('.t-title').addEventListener('click', e => {
-      const task = tasks.find(x=>x.id===e.currentTarget.dataset.tid);
-      if (task) { task.open=!task.open; render(); }
-    });
-    card.querySelector('.exp-btn').addEventListener('click', e => {
-      e.stopPropagation();
-      const task = tasks.find(x=>x.id===e.currentTarget.dataset.tid);
-      if (task) { task.open=!task.open; render(); }
-    });
-
-    // Rename task save button
-    const renameInput = card.querySelector('.rename-input');
-    const renameSaveBtn = card.querySelector('.rename-save-btn');
-    if (renameSaveBtn) {
-      const doRename = () => {
-        const val = renameInput.value.trim();
-        const task = tasks.find(x=>x.id===renameSaveBtn.dataset.tid);
-        if (task && val) { task.title = val; render(); updateProgress(); persist(); }
-      };
-      renameSaveBtn.addEventListener('click', e => { e.stopPropagation(); doRename(); });
-      renameInput.addEventListener('keydown', e => { if(e.key==='Enter'){e.preventDefault();doRename();} });
-      renameInput.addEventListener('click', e=>e.stopPropagation());
-    }
-
-    // Subtask toggle
-    card.querySelectorAll('.sub').forEach(row => {
-      row.addEventListener('click', e => {
-        if (e.target.closest('.sub-del') || e.target.closest('.sub-edit-btn')) return;
-        e.stopPropagation();
-        const task = tasks.find(x=>x.id===row.dataset.tid);
-        const sub = task && task.subtasks.find(x=>x.id===row.dataset.sid);
-        if (sub) { sub.done=!sub.done; render(); updateProgress(); scheduleSave(); }
-      });
-    });
-
-    // Subtask rename via pencil button
-    card.querySelectorAll('.sub-edit-btn').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.stopPropagation();
-        const task = tasks.find(x=>x.id===btn.dataset.tid);
-        const sub = task && task.subtasks.find(x=>x.id===btn.dataset.sid);
-        if (!sub) return;
-        const newLabel = prompt('Rename subtask:', sub.label);
-        if (newLabel && newLabel.trim()) {
-          sub.label = newLabel.trim();
-          render(); persist();
-        }
-      });
-    });
-
-    // Subtask delete
-    card.querySelectorAll('.sub-del').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.stopPropagation();
-        const task = tasks.find(x=>x.id===btn.dataset.tid);
-        if (task) {
-          task.subtasks = task.subtasks.filter(s=>s.id!==btn.dataset.sid);
-          render(); updateProgress(); persist();
-        }
-      });
-    });
-
-    // Add subtask
-    const addSubBtn = card.querySelector('.add-sub-btn');
-    if (addSubBtn) {
-      const addSubInput = card.querySelector('.sub-input');
-      const doAddSub = () => {
-        const val = addSubInput.value.trim();
-        if (!val) return;
-        const task = tasks.find(x=>x.id===addSubBtn.dataset.tid);
-        if (task) {
-          task.subtasks.push({id:'s'+Date.now(), done:false, label:val});
-          render(); updateProgress(); persist();
-        }
-      };
-      addSubBtn.addEventListener('click', e => { e.stopPropagation(); doAddSub(); });
-      addSubInput.addEventListener('keydown', e => { if(e.key==='Enter'){e.stopPropagation();doAddSub();} });
-      addSubInput.addEventListener('click', e=>e.stopPropagation());
-    }
-
-    // Notes
-    const ta = card.querySelector('textarea');
-    if (ta) {
-      ta.addEventListener('input', () => {
-        const task = tasks.find(x=>x.id===ta.dataset.tid);
-        if (task) { task.notes=ta.value; scheduleSave(); }
-      });
-      ta.addEventListener('click', e=>e.stopPropagation());
-    }
-
-    // Move
-    const sel = card.querySelector('.move-sel');
-    if (sel) {
-      sel.addEventListener('change', () => {
-        if (!sel.value) return;
-        const task = tasks.find(x=>x.id===sel.dataset.tid);
-        if (task) { task.group=sel.value; task.open=false; task.done=sel.value==='done'; render(); updateProgress(); persist(); }
-      });
-      sel.addEventListener('click', e=>e.stopPropagation());
-    }
-
-    // Delete
-    const delBtn = card.querySelector('[data-del]');
-    if (delBtn) {
-      delBtn.addEventListener('click', e => {
-        e.stopPropagation();
-        if (!confirm('Delete "'+t.title+'"?')) return;
-        tasks = tasks.filter(x=>x.id!==delBtn.dataset.del);
-        render(); updateProgress(); persist();
-      });
-    }
+    bindCardEvents(card,t,group);
 
     el.appendChild(card);
   });
 
-  // Drop on zone
-  el.addEventListener('dragover', e=>{e.preventDefault(); el.classList.add('drag-active');});
-  el.addEventListener('dragleave', e=>{if(!el.contains(e.relatedTarget)) el.classList.remove('drag-active');});
-  el.addEventListener('drop', e=>{
-    e.preventDefault(); el.classList.remove('drag-active');
-    if (!dragId) return;
-    const task = tasks.find(x=>x.id===dragId);
-    if (task && task.group!==group) { task.group=group; task.open=false; task.done=group==='done'; render(); updateProgress(); persist(); }
+  el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('drag-active');});
+  el.addEventListener('dragleave',e=>{if(!el.contains(e.relatedTarget))el.classList.remove('drag-active');});
+  el.addEventListener('drop',e=>{
+    e.preventDefault();el.classList.remove('drag-active');
+    if(!dragId) return;
+    const task=tasks.find(x=>x.id===dragId);
+    if(task&&task.group!==group){task.group=group;task.open=false;task.done=group==='done';render();persist();}
   });
 }
 
-function render() { GROUPS.forEach(g=>renderGroup(g)); }
+function renderMaster() {
+  const el=document.getElementById('master-view');
+  el.innerHTML='';
 
-function addTask() {
-  const title = document.getElementById('new-title').value.trim();
-  if (!title) return;
+  // Group by category
+  const cats={};
+  tasks.forEach(t=>{
+    const c=t.cat||'Other';
+    if(!cats[c]) cats[c]=[];
+    cats[c].push(t);
+  });
+
+  const sortedCats=Object.keys(cats).sort();
+  sortedCats.forEach(cat=>{
+    const group=document.createElement('div');
+    group.className='master-cat-group';
+    group.innerHTML=`<div class="master-cat-title">${cat}</div>`;
+    cats[cat].forEach(t=>{
+      const isDone=t.done||(t.subtasks.length>0&&t.subtasks.every(s=>s.done));
+      const ownerClass='owner-'+t.owner;
+      const ownerLabel=t.owner==='sam'?'Sam':t.owner==='sue'?'Sue':'Both';
+      const row=document.createElement('div');
+      row.className='master-row';
+      row.innerHTML=`
+        <div class="master-cb${isDone?' done':''}" data-tid="${t.id}">${isDone?MCHK:''}</div>
+        <span class="master-task-title${isDone?' done-title':''}" data-tid="${t.id}">${t.title}</span>
+        <span class="master-owner ${ownerClass}">${ownerLabel}</span>
+        <span class="master-status">${t.hint&&(t.hint.includes('Done')||t.hint.includes('done'))?'<span class="status-pill status-done">Done</span>':t.hint&&t.hint.includes('progress')?'<span class="status-pill status-progress">In progress</span>':t.hint&&t.hint.includes('Later')?'<span class="status-pill status-later">Later</span>':t.hint&&t.hint.includes('Ordered')?'<span class="status-pill status-ordered">Ordered</span>':''}</span>
+        <button class="master-edit-btn" data-tid="${t.id}" title="Edit">&#9998;</button>`;
+
+      row.querySelector('.master-cb').addEventListener('click',e=>{
+        e.stopPropagation();
+        const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);
+        if(!task||task.subtasks.length>0) return;
+        task.done=!task.done;
+        if(task.done)task.group='done';
+        render();persist();
+      });
+      row.querySelector('.master-task-title').addEventListener('click',e=>{
+        const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);
+        if(task){task.open=!task.open;render();}
+      });
+      row.querySelector('.master-edit-btn').addEventListener('click',e=>{
+        const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);
+        if(task){task.open=!task.open;render();}
+      });
+
+      group.appendChild(row);
+
+      // Expanded detail inline
+      if(t.open){
+        const detailWrap=document.createElement('div');
+        detailWrap.style.padding='0 14px 14px 14px';
+        detailWrap.innerHTML=makeDetailHtml(t,t.group);
+        // bind events on a fake card-like element
+        const fakeCard=document.createElement('div');
+        fakeCard.appendChild(detailWrap);
+        group.appendChild(detailWrap);
+
+        // manually bind detail events
+        const rsb=detailWrap.querySelector('.rename-save-btn');
+        if(rsb){const ri=detailWrap.querySelector('.rename-input');const doR=()=>{const v=ri.value.trim();const task=tasks.find(x=>x.id===rsb.dataset.tid);if(task&&v){task.title=v;render();persist();}};rsb.addEventListener('click',e=>{e.stopPropagation();doR();});ri.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doR();}});}
+        const csb=detailWrap.querySelector('.cat-save-btn');
+        if(csb){const ci=detailWrap.querySelector('.cat-input');const doC=()=>{const v=ci.value.trim();const task=tasks.find(x=>x.id===csb.dataset.tid);if(task){task.cat=v;render();persist();}};csb.addEventListener('click',e=>{e.stopPropagation();doC();});ci.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doC();}});}
+        const os=detailWrap.querySelector('.owner-sel');
+        if(os){os.addEventListener('change',()=>{const task=tasks.find(x=>x.id===os.dataset.tid);if(task){task.owner=os.value;render();persist();}});}
+        detailWrap.querySelectorAll('.sub').forEach(row2=>{row2.addEventListener('click',e=>{if(e.target.closest('.sub-del')||e.target.closest('.sub-edit-btn'))return;e.stopPropagation();const task=tasks.find(x=>x.id===row2.dataset.tid);const sub=task&&task.subtasks.find(x=>x.id===row2.dataset.sid);if(sub){sub.done=!sub.done;render();scheduleSave();}});});
+        detailWrap.querySelectorAll('.sub-edit-btn').forEach(btn=>{btn.addEventListener('click',e=>{e.stopPropagation();const task=tasks.find(x=>x.id===btn.dataset.tid);const sub=task&&task.subtasks.find(x=>x.id===btn.dataset.sid);if(!sub)return;const v=prompt('Rename:',sub.label);if(v&&v.trim()){sub.label=v.trim();render();persist();}});});
+        detailWrap.querySelectorAll('.sub-del').forEach(btn=>{btn.addEventListener('click',e=>{e.stopPropagation();const task=tasks.find(x=>x.id===btn.dataset.tid);if(task){task.subtasks=task.subtasks.filter(s=>s.id!==btn.dataset.sid);render();persist();}});});
+        const asb=detailWrap.querySelector('.add-sub-btn');
+        if(asb){const asi=detailWrap.querySelector('.sub-input');const doA=()=>{const v=asi.value.trim();if(!v)return;const task=tasks.find(x=>x.id===asb.dataset.tid);if(task){task.subtasks.push({id:'s'+Date.now(),done:false,label:v});render();persist();}};asb.addEventListener('click',e=>{e.stopPropagation();doA();});asi.addEventListener('keydown',e=>{if(e.key==='Enter'){e.stopPropagation();doA();}});}
+        const ta=detailWrap.querySelector('textarea');
+        if(ta){ta.addEventListener('input',()=>{const task=tasks.find(x=>x.id===ta.dataset.tid);if(task){task.notes=ta.value;scheduleSave();}});}
+        const ms=detailWrap.querySelector('.move-sel');
+        if(ms){ms.addEventListener('change',()=>{if(!ms.value)return;const task=tasks.find(x=>x.id===ms.dataset.tid);if(task){task.group=ms.value;task.open=false;task.done=ms.value==='done';render();persist();}});}
+        const db=detailWrap.querySelector('[data-del]');
+        if(db){db.addEventListener('click',e=>{e.stopPropagation();if(!confirm('Delete?'))return;tasks=tasks.filter(x=>x.id!==db.dataset.del);render();persist();});}
+      }
+    });
+    el.appendChild(group);
+  });
+}
+
+function render() {
+  if(activeTab==='master') renderMaster();
+  GROUPS.forEach(g=>{renderOwnerGroup('sam',g);renderOwnerGroup('sue',g);});
+  updateProgress('sam');
+  updateProgress('sue');
+}
+
+function switchTab(tab) {
+  activeTab=tab;
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.remove('active'));
+  ['master','sam','sue'].forEach((n,i)=>{if(n===tab)document.querySelectorAll('.tab')[i].classList.add('active');});
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  if(tab==='master') renderMaster();
+}
+
+function addTaskMaster() {
+  const title=document.getElementById('m-new-title').value.trim();
+  if(!title) return;
   tasks.push({
-    id: 't'+Date.now(), done:false,
-    group: document.getElementById('new-group').value,
-    hot: document.getElementById('new-hot').checked,
-    sue: document.getElementById('new-sue').checked,
-    deadline: document.getElementById('new-deadline').checked,
+    id:'t'+Date.now(),done:false,
+    group:document.getElementById('m-new-group').value,
+    hot:document.getElementById('m-new-hot').checked,
+    deadline:document.getElementById('m-new-deadline').checked,
+    owner:document.getElementById('m-new-owner').value,
+    cat:document.getElementById('m-new-cat').value.trim()||'Other',
     title,
-    hint: document.getElementById('new-hint').value.trim(),
-    notes:'', subtasks:[], open:false
+    hint:document.getElementById('m-new-hint').value.trim(),
+    notes:'',subtasks:[],open:false
   });
-  document.getElementById('new-title').value='';
-  document.getElementById('new-hint').value='';
-  ['new-hot','new-sue','new-deadline'].forEach(id=>document.getElementById(id).checked=false);
-  render(); updateProgress(); persist();
+  ['m-new-title','m-new-cat','m-new-hint'].forEach(id=>document.getElementById(id).value='');
+  ['m-new-hot','m-new-deadline'].forEach(id=>document.getElementById(id).checked=false);
+  render();persist();
 }
 
-document.getElementById('new-title').addEventListener('keydown', e=>{if(e.key==='Enter') addTask();});
+document.getElementById('m-new-title').addEventListener('keydown',e=>{if(e.key==='Enter')addTaskMaster();});
 load();
 </script>
-</body>
-</html>
+
+
+</body></html>
