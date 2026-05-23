@@ -6,86 +6,41 @@
 <title>Baby Prep · Due Late July 2026</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --bg:#fff;--bg2:#f7f7f5;--bg3:#f0efe9;
-  --text:#1a1a1a;--text2:#666;--text3:#999;
-  --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.2);
-  --green:#1D9E75;--green-light:#EAF3DE;--green-dark:#3B6D11;
-  --red-light:#FAECE7;--red-dark:#993C1D;
-  --blue-light:#E6F1FB;--blue-dark:#185FA5;
-  --amber-light:#FAEEDA;--amber-dark:#854F0B;
-  --pink:#D4537E;--pink-light:#FBEAF0;--pink-dark:#993556;
-  --radius:10px;--radius-sm:6px;
-  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#1c1c1e;--bg2:#2c2c2e;--bg3:#3a3a3c;
-    --text:#f2f2f7;--text2:#aeaeb2;--text3:#636366;
-    --border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.22);
-    --green-light:#0a2e20;--green-dark:#9FE1CB;
-    --red-light:#2e1206;--red-dark:#F5C4B3;
-    --blue-light:#0a1e30;--blue-dark:#85B7EB;
-    --amber-light:#2a1a02;--amber-dark:#FAC775;
-    --pink-light:#2e0a18;--pink-dark:#F4C0D1;
-  }
-}
+:root{--bg:#fff;--bg2:#f7f7f5;--bg3:#f0efe9;--text:#1a1a1a;--text2:#666;--text3:#999;--border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.2);--green:#1D9E75;--green-light:#EAF3DE;--green-dark:#3B6D11;--red-light:#FAECE7;--red-dark:#993C1D;--blue-light:#E6F1FB;--blue-dark:#185FA5;--amber-light:#FAEEDA;--amber-dark:#854F0B;--pink:#D4537E;--pink-light:#FBEAF0;--pink-dark:#993556;--radius:10px;--radius-sm:6px;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+@media(prefers-color-scheme:dark){:root{--bg:#1c1c1e;--bg2:#2c2c2e;--bg3:#3a3a3c;--text:#f2f2f7;--text2:#aeaeb2;--text3:#636366;--border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.22);--green-light:#0a2e20;--green-dark:#9FE1CB;--red-light:#2e1206;--red-dark:#F5C4B3;--blue-light:#0a1e30;--blue-dark:#85B7EB;--amber-light:#2a1a02;--amber-dark:#FAC775;--pink-light:#2e0a18;--pink-dark:#F4C0D1;}}
 body{font-family:var(--font);background:var(--bg3);color:var(--text);min-height:100vh;}
 .container{max-width:780px;margin:0 auto;padding:1.5rem 1rem 5rem;}
-.header{margin-bottom:1.25rem;}
-.header h1{font-size:22px;font-weight:600;}
-.header p{font-size:13px;color:var(--text2);margin-top:3px;}
+.header{margin-bottom:1.25rem;}.header h1{font-size:22px;font-weight:600;}.header p{font-size:13px;color:var(--text2);margin-top:3px;}
 .sync-status{font-size:11px;margin-top:4px;display:flex;align-items:center;gap:5px;}
-.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--text3);}
-.sync-dot.live{background:var(--green);}
-.sync-dot.saving{background:#F5A623;animation:pulse 1s infinite;}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--text3);}.sync-dot.live{background:var(--green);}.sync-dot.saving{background:#F5A623;animation:pulse 1s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
-
 .tabs{display:flex;gap:3px;margin-bottom:1.25rem;background:var(--bg2);padding:4px;border-radius:var(--radius);}
 .tab{flex:1;text-align:center;padding:8px 10px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;cursor:pointer;color:var(--text2);border:none;background:none;font-family:var(--font);transition:all .15s;}
-.tab:hover{color:var(--text);background:rgba(255,255,255,0.5);}
-.tab.active{background:var(--bg);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,0.1);}
-.tab-panel{display:none;}
-.tab-panel.active{display:block;}
-
+.tab:hover{color:var(--text);background:rgba(255,255,255,0.5);}.tab.active{background:var(--bg);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.tab-panel{display:none;}.tab-panel.active{display:block;}
 .prog-wrap{background:var(--bg2);border-radius:99px;height:5px;margin-bottom:5px;}
-.prog-fill{height:5px;border-radius:99px;transition:width 0.4s;background:var(--green);}
-.prog-fill.pink{background:var(--pink);}
+.prog-fill{height:5px;border-radius:99px;transition:width 0.4s;background:var(--green);}.prog-fill.pink{background:var(--pink);}
 .prog-label{font-size:12px;color:var(--text3);margin-bottom:1.25rem;}
-
-.section{margin-bottom:1.5rem;}
-.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.section{margin-bottom:1.5rem;}.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
 .section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);}
 .section-count{font-size:11px;color:var(--text3);}
-.drop-zone{min-height:32px;}
-.drop-zone.drag-active{background:var(--green-light);border-radius:var(--radius);outline:2px dashed var(--green);outline-offset:-2px;}
-
+.drop-zone{min-height:32px;}.drop-zone.drag-active{background:var(--green-light);border-radius:var(--radius);outline:2px dashed var(--green);outline-offset:-2px;}
 .card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);margin-bottom:6px;overflow:hidden;}
-.card:hover{box-shadow:0 1px 4px rgba(0,0,0,0.07);}
-.card.dragging{opacity:0.35;}
-.card.drag-over{outline:2px solid var(--green);outline-offset:-1px;}
-.card.done>.card-main{opacity:0.38;}
-.card.done>.card-main .t-title{text-decoration:line-through;}
+.card:hover{box-shadow:0 1px 4px rgba(0,0,0,0.07);}.card.dragging{opacity:0.35;}.card.drag-over{outline:2px solid var(--green);outline-offset:-1px;}
+.card.done>.card-main{opacity:0.38;}.card.done>.card-main .t-title{text-decoration:line-through;}
 .card-main{display:flex;align-items:center;gap:10px;padding:11px 13px;min-height:44px;}
-.grip{cursor:grab;color:var(--text3);flex-shrink:0;display:flex;align-items:center;}
-.grip:active{cursor:grabbing;}
+.grip{cursor:grab;color:var(--text3);flex-shrink:0;display:flex;align-items:center;}.grip:active{cursor:grabbing;}
 .cb{width:19px;height:19px;border-radius:50%;border:1.5px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;background:var(--bg);}
-.cb:hover{border-color:var(--green);}
-.card.done .cb{background:var(--green);border-color:var(--green);}
-.cb .chk{display:none;}
-.card.done .cb .chk{display:block;}
-.t-title{font-size:13px;font-weight:500;color:var(--text);flex:1;min-width:0;cursor:pointer;line-height:1.4;}
-.t-title:hover{color:var(--green);}
+.cb:hover{border-color:var(--green);}.card.done .cb{background:var(--green);border-color:var(--green);}
+.cb .chk{display:none;}.card.done .cb .chk{display:block;}
+.t-title{font-size:13px;font-weight:500;color:var(--text);flex:1;min-width:0;cursor:pointer;line-height:1.4;}.t-title:hover{color:var(--green);}
 .sub-progress{font-size:11px;color:var(--text3);margin-left:4px;font-weight:400;}
 .badges{display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap;}
 .badge{font-size:10px;padding:2px 7px;border-radius:99px;font-weight:600;white-space:nowrap;}
-.b-hot{background:var(--red-light);color:var(--red-dark);}
-.b-today{background:var(--green-light);color:var(--green-dark);}
-.b-deadline{background:var(--amber-light);color:var(--amber-dark);}
-.b-owner-both{background:var(--blue-light);color:var(--blue-dark);}
+.b-hot{background:var(--red-light);color:var(--red-dark);}.b-today{background:var(--green-light);color:var(--green-dark);}
+.b-deadline{background:var(--amber-light);color:var(--amber-dark);}.b-owner-both{background:var(--blue-light);color:var(--blue-dark);}
 .exp-btn{background:none;border:none;cursor:pointer;color:var(--text3);padding:3px 5px;display:flex;align-items:center;border-radius:4px;flex-shrink:0;}
 .exp-btn:hover{background:var(--bg2);}
-
 .detail{border-top:0.5px solid var(--border);padding:12px 13px 14px 43px;}
 .hint{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:12px;}
 .field-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;}
@@ -94,69 +49,49 @@ body{font-family:var(--font);background:var(--bg3);color:var(--text);min-height:
 .field-row input:focus,.field-row select:focus{border-color:var(--green);}
 .field-row button{font-size:12px;padding:4px 10px;border-radius:var(--radius-sm);border:0.5px solid var(--green);background:none;color:var(--green);cursor:pointer;font-weight:500;white-space:nowrap;}
 .field-row button:hover{background:var(--green-light);}
-
 .subtasks-list{margin-bottom:12px;}
-.sub{display:flex;align-items:center;gap:8px;padding:5px 6px;border-radius:var(--radius-sm);cursor:pointer;}
-.sub:hover{background:var(--bg2);}
+.sub{display:flex;align-items:center;gap:8px;padding:5px 6px;border-radius:var(--radius-sm);cursor:pointer;}.sub:hover{background:var(--bg2);}
 .sub-cb{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;background:var(--bg);}
-.sub:hover .sub-cb{border-color:var(--green);}
-.sub.done .sub-cb{background:var(--green);border-color:var(--green);}
-.sub.done .sub-lbl{text-decoration:line-through;color:var(--text3);}
-.sub-lbl{font-size:13px;color:var(--text);flex:1;}
+.sub:hover .sub-cb{border-color:var(--green);}.sub.done .sub-cb{background:var(--green);border-color:var(--green);}
+.sub.done .sub-lbl{text-decoration:line-through;color:var(--text3);}.sub-lbl{font-size:13px;color:var(--text);flex:1;}
 .sub-edit-btn{background:none;border:none;cursor:pointer;color:var(--text3);padding:0 3px;display:none;border-radius:3px;font-size:12px;}
-.sub:hover .sub-edit-btn{display:block;}
-.sub-edit-btn:hover{color:var(--blue-dark);background:var(--blue-light);}
+.sub:hover .sub-edit-btn{display:block;}.sub-edit-btn:hover{color:var(--blue-dark);background:var(--blue-light);}
 .sub-del{background:none;border:none;cursor:pointer;color:var(--text3);padding:0 3px;display:none;border-radius:3px;font-size:13px;}
-.sub:hover .sub-del{display:block;}
-.sub-del:hover{color:var(--red-dark);background:var(--red-light);}
+.sub:hover .sub-del{display:block;}.sub-del:hover{color:var(--red-dark);background:var(--red-light);}
 .add-sub-row{display:flex;gap:6px;margin-bottom:12px;}
 .add-sub-row input{flex:1;font-size:12px;padding:6px 9px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);font-family:var(--font);outline:none;}
 .add-sub-row input:focus{border-color:var(--green);}
 .add-sub-row button{font-size:12px;padding:5px 10px;border-radius:var(--radius-sm);border:0.5px solid var(--green);background:none;color:var(--green);cursor:pointer;font-weight:500;}
 .add-sub-row button:hover{background:var(--green-light);}
-.notes-area{margin-bottom:12px;}
-.notes-area label{font-size:11px;color:var(--text3);display:block;margin-bottom:4px;}
+.notes-area{margin-bottom:12px;}.notes-area label{font-size:11px;color:var(--text3);display:block;margin-bottom:4px;}
 textarea{width:100%;font-size:12px;padding:8px 10px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);resize:vertical;min-height:56px;font-family:var(--font);line-height:1.5;outline:none;}
 textarea:focus{border-color:var(--green);}
-.d-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.d-actions label{font-size:11px;color:var(--text3);}
+.d-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}.d-actions label{font-size:11px;color:var(--text3);}
 select{font-size:12px;padding:5px 8px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);cursor:pointer;font-family:var(--font);outline:none;}
 .btn{font-size:12px;padding:5px 11px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text2);cursor:pointer;font-family:var(--font);}
-.btn:hover{background:var(--bg3);}
-.btn-danger{color:#A32D2D;border-color:#F09595;background:none;}
-.btn-danger:hover{background:#FCEBEB;}
-.btn-primary{background:var(--green);color:white;border-color:var(--green);font-weight:500;}
-.btn-primary:hover{opacity:0.88;}
-
+.btn:hover{background:var(--bg3);}.btn-danger{color:#A32D2D;border-color:#F09595;background:none;}.btn-danger:hover{background:#FCEBEB;}
+.btn-primary{background:var(--green);color:white;border-color:var(--green);font-weight:500;}.btn-primary:hover{opacity:0.88;}
 .add-section{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:1.5rem;}
 .add-section h3{font-size:13px;font-weight:600;margin-bottom:14px;color:var(--text2);}
 .add-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
 input[type=text]{font-size:13px;padding:8px 10px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);font-family:var(--font);width:100%;outline:none;}
 input[type=text]:focus{border-color:var(--green);}
-.add-row{display:flex;gap:8px;margin-bottom:8px;}
-.add-row input{flex:1;}
+.add-row{display:flex;gap:8px;margin-bottom:8px;}.add-row input{flex:1;}
 .checkbox-row{display:flex;gap:14px;margin-bottom:12px;flex-wrap:wrap;}
 .checkbox-row label{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text2);cursor:pointer;}
 input[type=checkbox]{accent-color:var(--green);cursor:pointer;}
-
 .master-cat-group{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden;}
 .master-cat-title{font-size:12px;font-weight:600;color:var(--text2);padding:10px 14px;background:var(--bg2);border-bottom:0.5px solid var(--border);}
 .master-row{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:0.5px solid var(--border);cursor:pointer;}
-.master-row:last-of-type{border-bottom:none;}
-.master-row:hover{background:var(--bg2);}
+.master-row:last-of-type{border-bottom:none;}.master-row:hover{background:var(--bg2);}
 .master-cb{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--bg);transition:all .15s;}
-.master-cb:hover{border-color:var(--green);}
-.master-cb.done{background:var(--green);border-color:var(--green);}
-.master-task-title{flex:1;font-size:13px;color:var(--text);}
-.master-task-title.done-title{text-decoration:line-through;color:var(--text3);}
+.master-cb:hover{border-color:var(--green);}.master-cb.done{background:var(--green);border-color:var(--green);}
+.master-task-title{flex:1;font-size:13px;color:var(--text);}.master-task-title.done-title{text-decoration:line-through;color:var(--text3);}
 .master-owner{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap;flex-shrink:0;}
-.owner-sam{background:var(--green-light);color:var(--green-dark);}
-.owner-sue{background:var(--pink-light);color:var(--pink-dark);}
-.owner-both{background:var(--blue-light);color:var(--blue-dark);}
+.owner-sam{background:var(--green-light);color:var(--green-dark);}.owner-sue{background:var(--pink-light);color:var(--pink-dark);}.owner-both{background:var(--blue-light);color:var(--blue-dark);}
 .master-edit-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-size:12px;padding:2px 6px;border-radius:3px;flex-shrink:0;}
 .master-edit-btn:hover{color:var(--blue-dark);background:var(--blue-light);}
 .master-detail{padding:12px 14px 14px;border-top:0.5px solid var(--border);background:var(--bg);}
-
 .loading{text-align:center;padding:3rem;color:var(--text3);font-size:14px;}
 .empty{font-size:12px;color:var(--text3);padding:8px 4px;font-style:italic;}
 .status-bar{position:fixed;bottom:20px;right:20px;background:var(--text);color:var(--bg);font-size:12px;padding:7px 16px;border-radius:99px;opacity:0;transition:opacity .25s;pointer-events:none;}
@@ -173,13 +108,11 @@ input[type=checkbox]{accent-color:var(--green);cursor:pointer;}
       <span id="sync-label" style="font-size:11px;color:var(--text3)">Connecting...</span>
     </div>
   </div>
-
   <div class="tabs">
     <button class="tab active" onclick="switchTab('master')">Master list</button>
     <button class="tab" onclick="switchTab('sam')">Sam's list</button>
     <button class="tab" onclick="switchTab('sue')">Sue's list</button>
   </div>
-
   <div class="tab-panel active" id="tab-master">
     <div id="master-view"><div class="loading">Connecting to database...</div></div>
     <div class="add-section">
@@ -200,7 +133,6 @@ input[type=checkbox]{accent-color:var(--green);cursor:pointer;}
       <button class="btn btn-primary" onclick="addTask()">Add task</button>
     </div>
   </div>
-
   <div class="tab-panel" id="tab-sam">
     <div class="prog-wrap"><div class="prog-fill" id="sam-prog-bar" style="width:0%"></div></div>
     <div class="prog-label" id="sam-prog-label">Loading...</div>
@@ -209,7 +141,6 @@ input[type=checkbox]{accent-color:var(--green);cursor:pointer;}
     <div class="section"><div class="section-header"><span class="section-label">On the list</span><span class="section-count" id="sam-count-other"></span></div><div class="drop-zone" id="sam-g-other"></div></div>
     <div class="section"><div class="section-header"><span class="section-label">Done</span><span class="section-count" id="sam-count-done"></span></div><div class="drop-zone" id="sam-g-done"></div></div>
   </div>
-
   <div class="tab-panel" id="tab-sue">
     <div class="prog-wrap"><div class="prog-fill pink" id="sue-prog-bar" style="width:0%"></div></div>
     <div class="prog-label" id="sue-prog-label">Loading...</div>
@@ -219,74 +150,18 @@ input[type=checkbox]{accent-color:var(--green);cursor:pointer;}
     <div class="section"><div class="section-header"><span class="section-label">Done</span><span class="section-count" id="sue-count-done"></span></div><div class="drop-zone" id="sue-g-done"></div></div>
   </div>
 </div>
-
 <div class="status-bar" id="status"></div>
-
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getDatabase, ref, set, onValue, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBEDeVBYIzTZzy-f5eGre8NihhsOuUMxY0",
-  authDomain: "baby-prep-4a412.firebaseapp.com",
-  databaseURL: "https://baby-prep-4a412-default-rtdb.firebaseio.com",
-  projectId: "baby-prep-4a412",
-  storageBucket: "baby-prep-4a412.firebasestorage.app",
-  messagingSenderId: "239196414298",
-  appId: "1:239196414298:web:803755463c86b8c31b1363"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-const tasksRef = ref(db, 'tasks');
-
-const DEFAULTS = [
-  {id:'a1',done:false,group:'today',hot:false,deadline:false,owner:'sam',cat:'Hardware',title:'Hardware store run',hint:'',notes:'',subtasks:[{id:'s1',done:false,label:'Spackle'},{id:'s2',done:false,label:'Stronger power strip for AC'},{id:'s3',done:false,label:'Chat through bracket options for living room AC'}],open:false},
-  {id:'a3',done:false,group:'today',hot:false,deadline:false,owner:'sam',cat:'Party',title:'Baby shower/house warming prep',hint:'Narrow down caterers or food style, get at least 2 quotes.',notes:'',subtasks:[{id:'s4',done:false,label:'Get catering squared away'},{id:'s5',done:false,label:'Stackable stools'},{id:'s6',done:false,label:'Buy napkins, paper plates, plastic silverware'},{id:'s7',done:false,label:'Consider some kind of folding table?'}],open:false},
-  {id:'a2',done:false,group:'today',hot:false,deadline:false,owner:'sam',cat:'Pediatrics',title:'Make a shortlist of pediatricians',hint:'Park Slope practices fill fast.',notes:'',subtasks:[],open:false},
-  {id:'b1',done:false,group:'today',hot:true,deadline:false,owner:'sam',cat:'Food',title:'Groceries for bolognese',hint:'Guests tomorrow night.',notes:'',subtasks:[],open:false},
-  {id:'b2',done:false,group:'upnext',hot:true,deadline:false,owner:'sam',cat:'Personal',title:'Plan date night — Dinner/Vanguard',hint:'Aiming for 6/6 or 6/7.',notes:'',subtasks:[{id:'b2s1',done:true,label:'Book Village Vanguard tickets'},{id:'b2s2',done:false,label:'Make dinner reservation for 6/5'}],open:false},
-  {id:'b4',done:false,group:'upnext',hot:true,deadline:false,owner:'sam',cat:'Finance',title:'Baby finances to-do',hint:'',notes:'',subtasks:[{id:'f1',done:false,label:'Educational savings account 529 at NYSaves.com'},{id:'f2',done:false,label:'Research UTMA/Custodial accounts'},{id:'f3',done:false,label:'Open up HYSA for baby expenses and fund $10k'},{id:'f4',done:false,label:'Check dependent care FSA with Omnicom/Roku'},{id:'f5',done:false,label:'Look into term life insurance'}],open:false},
-  {id:'b6',done:false,group:'upnext',hot:true,deadline:false,owner:'sam',cat:'Mom',title:"Setting up office for Sue's mom",hint:'',notes:'',subtasks:[{id:'m1',done:false,label:'Buy Ikea Fold-Out Bed'},{id:'m2',done:false,label:'Buy a clothing rack'},{id:'m3',done:false,label:'Think about getting her a credit card?'}],open:false},
-  {id:'b9',done:false,group:'upnext',hot:true,deadline:false,owner:'sam',cat:'Home',title:'AC for our living room',hint:'Separate from rental unit AC.',notes:'',subtasks:[{id:'ac1',done:false,label:'Ask hardware store guy about living room bracket'},{id:'ac2',done:false,label:'Find a good air conditioner (FB marketplace or new)'},{id:'ac3',done:false,label:'Pull the trigger on something'}],open:false},
-  {id:'c4',done:false,group:'upnext',hot:false,deadline:false,owner:'sam',cat:'Nursery',title:'Set up the nursery',hint:'',notes:'',subtasks:[{id:'n1',done:false,label:'Figure out decorating'},{id:'n2',done:false,label:'Build the crib (already bought)'},{id:'n3',done:false,label:'Get double dresser'}],open:false},
-  {id:'c1',done:false,group:'upnext',hot:false,deadline:true,owner:'both',cat:'Insurance',title:'Add baby to health insurance',hint:'Hard 30-day deadline from birth.',notes:'',subtasks:[],open:false},
-  {id:'b11',done:false,group:'upnext',hot:false,deadline:false,owner:'sam',cat:'Coming home',title:'Car seat considerations',hint:'Infant vs. convertible. Never buy used. Install before 35 weeks.',notes:'',subtasks:[{id:'cs1',done:false,label:'Decide: infant seat vs. convertible'},{id:'cs2',done:false,label:'Purchase car seat'},{id:'cs3',done:false,label:'Install before 35 weeks'},{id:'cs4',done:false,label:'Book free inspection (NYPD/fire station)'}],open:false},
-  {id:'c2',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Finance',title:'Update beneficiaries on all accounts',hint:'Retirement accounts, life insurance, everything.',notes:'',subtasks:[],open:false},
-  {id:'c3',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Pediatrics',title:'Research daycares',hint:'Waitlists in Park Slope can be 1-2 years.',notes:'',subtasks:[{id:'d1',done:false,label:'Ask around for recommendations'},{id:'d2',done:false,label:'Tour at least 2-3 options'},{id:'d3',done:false,label:'Get on waitlists'}],open:false},
-  {id:'c5',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Home',title:'Baby proofing',hint:'Not urgent until baby is mobile.',notes:'',subtasks:[],open:false},
-  {id:'c6',done:false,group:'other',hot:false,deadline:false,owner:'both',cat:'Finance',title:'Get a will drafted',hint:'Trust & Will or Fabric online (~$100-200).',notes:'',subtasks:[],open:false},
-  {id:'c8',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Learning',title:'Skim the dad books',hint:'The New Father: read birth + first-month chapters.',notes:'',subtasks:[],open:false},
-  {id:'d1',done:true,group:'done',hot:false,deadline:false,owner:'both',cat:'L&D',title:'Book birth & delivery class',hint:'Lamaze class booked.',notes:'',subtasks:[],open:false},
-  {id:'d2',done:true,group:'done',hot:false,deadline:false,owner:'sue',cat:'Home',title:'Rental unit AC',hint:"Sue's lead, in progress.",notes:'',subtasks:[],open:false},
-  {id:'sue1',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Baby clothes',title:'After baby shower, order clothes (premie) and diapers',hint:'',notes:'',subtasks:[],open:false},
-  {id:'sue2',done:false,group:'other',hot:false,deadline:true,owner:'sue',cat:'Insurance',title:'Add the baby by 30 days of birth',hint:'Hard deadline.',notes:'',subtasks:[],open:false},
-  {id:'sue3',done:true,group:'done',hot:false,deadline:false,owner:'both',cat:'Insurance',title:'Compare insurance policy',hint:'Done.',notes:'',subtasks:[],open:false},
-  {id:'sue4',done:true,group:'done',hot:false,deadline:false,owner:'sue',cat:'Insurance',title:'Call insurance to see in-network',hint:'',notes:'',subtasks:[],open:false},
-  {id:'sue5',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'L&D',title:'Pack the L&D bag',hint:'',notes:'',subtasks:[],open:false},
-  {id:'sue6',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Learning',title:'Baby naming book',hint:'Ordered.',notes:'',subtasks:[],open:false},
-  {id:'sue7',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Learning',title:'Birthing class',hint:'Ordered; 5/30.',notes:'',subtasks:[],open:false},
-  {id:'sue8',done:false,group:'other',hot:true,deadline:false,owner:'sue',cat:'Learning',title:'Book Massage',hint:'',notes:'',subtasks:[],open:false},
-  {id:'sue9',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Learning',title:'Breast feeding class',hint:'In progress.',notes:'',subtasks:[],open:false},
-  {id:'sue10',done:false,group:'other',hot:true,deadline:false,owner:'sue',cat:'Learning',title:'Create a schedule',hint:'',notes:'',subtasks:[],open:false},
-  {id:'sue11',done:false,group:'other',hot:true,deadline:false,owner:'sue',cat:'Mom',title:'Order bed',hint:'',notes:'',subtasks:[],open:false},
-  {id:'sue12',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Nursery',title:'Curtain',hint:'Later.',notes:'',subtasks:[],open:false},
-  {id:'sue13',done:false,group:'other',hot:false,deadline:false,owner:'sue',cat:'Nursing',title:'Call insurance to order the pump (Spectra S1, Eufy S1)',hint:'',notes:'',subtasks:[],open:false},
-  {id:'sue14',done:true,group:'done',hot:false,deadline:false,owner:'sue',cat:'Nursing',title:'Get nursing bra',hint:'Done.',notes:'',subtasks:[],open:false},
-  {id:'sam1',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Coming home',title:'Wash all the baby clothes and sheets',hint:'',notes:'',subtasks:[],open:false},
-  {id:'sam2',done:true,group:'done',hot:false,deadline:false,owner:'sam',cat:'Nursery',title:'Lighting swap',hint:'Done.',notes:'',subtasks:[],open:false},
-  {id:'sam3',done:false,group:'other',hot:false,deadline:false,owner:'sam',cat:'Pediatrics',title:'Tour of the pediatrics',hint:'In progress.',notes:'',subtasks:[],open:false},
-  {id:'sam4',done:false,group:'other',hot:false,deadline:false,owner:'both',cat:'Vaccine',title:'Tdap for Sam and his parents',hint:'In progress.',notes:'',subtasks:[],open:false},
-];
-
-const GROUPS = ['today','upnext','other','done'];
-const GROUP_LABELS = {today:'Today',upnext:'Up next',other:'On the list',done:'Done'};
-let tasks = [];
-let activeTab = 'master';
-let dragId = null;
-let saveTimer = null;
-let isInitialized = false;
-
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getDatabase,ref,set,onValue}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+const firebaseConfig={apiKey:"AIzaSyBEDeVBYIzTZzy-f5eGre8NihhsOuUMxY0",authDomain:"baby-prep-4a412.firebaseapp.com",databaseURL:"https://baby-prep-4a412-default-rtdb.firebaseio.com",projectId:"baby-prep-4a412",storageBucket:"baby-prep-4a412.firebasestorage.app",messagingSenderId:"239196414298",appId:"1:239196414298:web:803755463c86b8c31b1363"};
+const app=initializeApp(firebaseConfig);
+const db=getDatabase(app);
+const tasksRef=ref(db,'tasks');
+const DEFAULTS=[{"cat":"Hardware","deadline":false,"done":false,"group":"today","hint":"","hot":false,"id":"a1","notes":"","open":false,"owner":"sam","subtasks":[{"done":true,"id":"s1","label":"Spackle"},{"done":true,"id":"s2","label":"Stronger power strip for AC"},{"done":true,"id":"s3","label":"Chat through bracket options for living room AC"}],"title":"Hardware store run"},{"cat":"Party","deadline":false,"done":false,"group":"today","hint":"Narrow down caterers or food style, get at least 2 quotes.","hot":false,"id":"a3","notes":"","open":false,"owner":"sam","subtasks":[{"done":false,"id":"s4","label":"Get catering squared away"},{"done":false,"id":"s5","label":"Stackable stools"},{"done":false,"id":"s6","label":"Buy napkins, paper plates, plastic silverware"},{"done":false,"id":"s7","label":"Consider some kind of folding table?"}],"title":"Baby shower/house warming prep"},{"cat":"Pediatrics","deadline":false,"done":false,"group":"today","hint":"Park Slope practices fill fast.","hot":false,"id":"a2","notes":"","open":false,"owner":"sam","title":"Make a shortlist of pediatricians"},{"cat":"Food","deadline":false,"done":false,"group":"today","hint":"Guests tomorrow night.","hot":true,"id":"b1","notes":"","open":true,"owner":"sam","subtasks":[{"done":true,"id":"s1779407367849","label":"Beef or pork shoulder"},{"done":true,"id":"s1779407377760","label":"Carrot"},{"done":true,"id":"s1779407382136","label":"Celery"},{"done":true,"id":"s1779407386822","label":"Onion"},{"done":true,"id":"s1779407397440","label":"Sage"},{"done":true,"id":"s1779407403920","label":"Cream"},{"done":true,"id":"s1779407625821","label":"Nice paster"},{"done":true,"id":"s1779407664594","label":"Parm"},{"done":true,"id":"s1779407754056","label":"Think through salad\u2026. Maybe shredded cabbage/fennel"},{"done":true,"id":"s1779407773681","label":"Garlic"},{"done":true,"id":"s1779476280728","label":"Parsley"},{"done":true,"id":"s1779476286079","label":"Tin foil"},{"done":true,"id":"s1779476291023","label":"White wine"},{"done":true,"id":"s1779476297309","label":"Bone broth"}],"title":"Groceries for bolognese"},{"cat":"Personal","deadline":false,"done":false,"group":"upnext","hint":"Aiming for 6/6 or 6/7.","hot":true,"id":"b2","notes":"","open":false,"owner":"sam","subtasks":[{"done":true,"id":"b2s1","label":"OH SECOND SURPRISE FOR SHOUJIE!!!"},{"done":false,"id":"b2s2","label":"OH FIRST SURPRISE FOR SHOUJIE!!!!!"}],"title":"OH SURPRISE FOR SHOUJIEEEEEEE 6/5"},{"cat":"Finance","deadline":false,"done":false,"group":"upnext","hint":"","hot":true,"id":"b4","notes":"","open":false,"owner":"sam","subtasks":[{"done":false,"id":"f1","label":"Educational savings account 529 at NYSaves.com"},{"done":false,"id":"f2","label":"Research UTMA/Custodial accounts"},{"done":false,"id":"f3","label":"Open up HYSA for baby expenses and fund $10k"},{"done":false,"id":"f4","label":"Check dependent care FSA with Omnicom/Roku"},{"done":false,"id":"f5","label":"Look into term life insurance"}],"title":"Baby finances to-do"},{"cat":"Mom","deadline":false,"done":false,"group":"upnext","hint":"","hot":true,"id":"b6","notes":"","open":false,"owner":"sam","subtasks":[{"done":false,"id":"m1","label":"Buy Ikea Fold-Out Bed"},{"done":false,"id":"m2","label":"Buy a clothing rack"},{"done":false,"id":"m3","label":"Think about getting her a credit card?"}],"title":"Setting up office for Sue's mom"},{"cat":"Home","deadline":false,"done":false,"group":"upnext","hint":"Separate from rental unit AC.","hot":true,"id":"b9","notes":"","open":false,"owner":"sam","subtasks":[{"done":true,"id":"ac1","label":"Ask hardware store guy about living room bracket"},{"done":false,"id":"ac2","label":"Find good replacement AC for bedroom"},{"done":false,"id":"ac3","label":"Pull the trigger on something"},{"done":false,"id":"s1779392265454","label":"Attempt #3 at installing a window bracket for the AC"}],"title":"AC Mishigas"},{"cat":"Nursery","deadline":false,"done":false,"group":"upnext","hint":"","hot":false,"id":"c4","notes":"","open":false,"owner":"sam","subtasks":[{"done":false,"id":"n1","label":"Figure out decorating"},{"done":false,"id":"n2","label":"Build the crib (already bought)"},{"done":false,"id":"n3","label":"Get double dresser"}],"title":"Set up the nursery"},{"cat":"Insurance","deadline":true,"done":false,"group":"upnext","hint":"Hard 30-day deadline from birth.","hot":false,"id":"c1","notes":"","open":false,"owner":"both","title":"Add baby to health insurance"},{"cat":"Coming home","deadline":false,"done":false,"group":"upnext","hint":"Infant vs. convertible. Never buy used. Install before 35 weeks.","hot":false,"id":"b11","notes":"","open":false,"owner":"sam","subtasks":[{"done":false,"id":"cs1","label":"Decide: infant seat vs. convertible"},{"done":false,"id":"cs2","label":"Purchase car seat"},{"done":false,"id":"cs3","label":"Install before 35 weeks"},{"done":false,"id":"cs4","label":"Book free inspection (NYPD/fire station)"}],"title":"Car seat considerations"},{"cat":"Finance","deadline":false,"done":false,"group":"other","hint":"Retirement accounts, life insurance, everything.","hot":false,"id":"c2","notes":"","open":false,"owner":"sam","title":"Update beneficiaries on all accounts"},{"cat":"Pediatrics","deadline":false,"done":false,"group":"other","hint":"Waitlists in Park Slope can be 1-2 years.","hot":false,"id":"c3","notes":"","open":false,"owner":"sam","subtasks":[{"done":false,"id":"d1","label":"Ask around for recommendations"},{"done":false,"id":"d2","label":"Tour at least 2-3 options"},{"done":false,"id":"d3","label":"Get on waitlists"}],"title":"Research daycares"},{"cat":"Home","deadline":false,"done":false,"group":"other","hint":"Not urgent until baby is mobile.","hot":false,"id":"c5","notes":"","open":false,"owner":"sam","title":"Baby proofing"},{"cat":"Finance","deadline":false,"done":false,"group":"other","hint":"Trust & Will or Fabric online (~$100-200).","hot":false,"id":"c6","notes":"","open":false,"owner":"both","title":"Get a will drafted"},{"cat":"Learning","deadline":false,"done":false,"group":"other","hint":"The New Father: read birth + first-month chapters.","hot":false,"id":"c8","notes":"","open":false,"owner":"sam","title":"Skim the dad books"},{"cat":"L&D","deadline":false,"done":true,"group":"done","hint":"Lamaze class booked.","hot":false,"id":"d1","notes":"","open":false,"owner":"both","title":"Book birth & delivery class"},{"cat":"Home","deadline":false,"done":true,"group":"done","hint":"Sue's lead, in progress.","hot":false,"id":"d2","notes":"","open":false,"owner":"sue","title":"Rental unit AC"},{"cat":"Baby clothes","deadline":false,"done":false,"group":"other","hint":"","hot":false,"id":"sue1","notes":"","open":false,"owner":"sue","title":"After baby shower, order clothes (premie) and diapers"},{"cat":"Insurance","deadline":true,"done":false,"group":"other","hint":"Hard deadline.","hot":false,"id":"sue2","notes":"","open":false,"owner":"sue","title":"Add the baby by 30 days of birth"},{"cat":"Insurance","deadline":false,"done":true,"group":"done","hint":"Done.","hot":false,"id":"sue3","notes":"","open":false,"owner":"both","title":"Compare insurance policy"},{"cat":"Insurance","deadline":false,"done":true,"group":"done","hint":"","hot":false,"id":"sue4","notes":"","open":false,"owner":"sue","title":"Call insurance to see in-network"},{"cat":"L&D","deadline":false,"done":false,"group":"other","hint":"","hot":false,"id":"sue5","notes":"","open":false,"owner":"sue","title":"Pack the L&D bag"},{"cat":"Learning","deadline":false,"done":true,"group":"done","hint":"Ordered.","hot":false,"id":"sue6","notes":"","open":false,"owner":"sue","title":"Baby naming book"},{"cat":"Learning","deadline":false,"done":true,"group":"done","hint":"Ordered; 5/30.","hot":false,"id":"sue7","notes":"","open":false,"owner":"sue","title":"Birthing class"},{"cat":"Learning","deadline":false,"done":false,"group":"other","hint":"","hot":true,"id":"sue8","notes":"","open":false,"owner":"sue","title":"Book Massage"},{"cat":"Learning","deadline":false,"done":false,"group":"other","hint":"In progress.","hot":false,"id":"sue9","notes":"","open":false,"owner":"sue","title":"Breast feeding class"},{"cat":"Learning","deadline":false,"done":false,"group":"other","hint":"","hot":true,"id":"sue10","notes":"","open":false,"owner":"sue","title":"Create a schedule"},{"cat":"Mom","deadline":false,"done":false,"group":"other","hint":"","hot":true,"id":"sue11","notes":"","open":false,"owner":"sue","title":"Order bed"},{"cat":"Nursery","deadline":false,"done":false,"group":"other","hint":"Later.","hot":false,"id":"sue12","notes":"","open":false,"owner":"sue","title":"Curtain"},{"cat":"Nursing","deadline":false,"done":true,"group":"done","hint":"","hot":false,"id":"sue13","notes":"","open":false,"owner":"sue","title":"Call insurance to order the pump (Spectra S1, Eufy S1)"},{"cat":"Nursing","deadline":false,"done":true,"group":"done","hint":"Done.","hot":false,"id":"sue14","notes":"","open":false,"owner":"sue","title":"Get nursing bra"},{"cat":"Coming home","deadline":false,"done":false,"group":"other","hint":"","hot":false,"id":"sam1","notes":"","open":false,"owner":"sam","title":"Wash all the baby clothes and sheets"},{"cat":"Nursery","deadline":false,"done":true,"group":"done","hint":"Done.","hot":false,"id":"sam2","notes":"","open":false,"owner":"sam","title":"Lighting swap"},{"cat":"Pediatrics","deadline":false,"done":false,"group":"other","hint":"In progress.","hot":false,"id":"sam3","notes":"","open":false,"owner":"sam","title":"Tour of the pediatrics"},{"cat":"Vaccine","deadline":false,"done":false,"group":"other","hint":"In progress.","hot":false,"id":"sam4","notes":"","open":false,"owner":"both","title":"Tdap for Sam and his parents"},{"cat":"Other","deadline":false,"done":true,"group":"done","hint":"","hot":true,"id":"t1779404455898","notes":"","open":false,"owner":"sam","title":"Pay Dr Scholler"},{"cat":"Other","deadline":true,"done":false,"group":"other","hint":"","hot":false,"id":"t1779455039984","notes":"","open":false,"owner":"sue","title":"Bounce on it"},{"id":"ob1","done":false,"group":"upnext","hot":true,"deadline":false,"owner":"both","cat":"Medical","title":"Things to ask OB at next appointment","hint":"Next scan Thursday 5/28","notes":"","subtasks":[{"id":"ob1s1","done":false,"label":"NICU likelihood given IUGR and expected size"},{"id":"ob1s2","done":false,"label":"What size should we expect at delivery?"},{"id":"ob1s3","done":false,"label":"Ask about any rashes or skin conditions noted at birth"},{"id":"ob1s4","done":false,"label":"Confirm induction plan at 37 weeks"}],"open":false},{"id":"bs1","done":false,"group":"upnext","hot":true,"deadline":false,"owner":"both","cat":"Baby Supplies","title":"Baby supplies shopping list","hint":"From newborn class","notes":"","subtasks":[{"id":"bs1s1","done":false,"label":"Hooded baby towels x2"},{"id":"bs1s2","done":false,"label":"Cotton rounds (for face/eye cleaning)"},{"id":"bs1s3","done":false,"label":"WaterWipes (for first 6 weeks)"},{"id":"bs1s4","done":false,"label":"Zinc-based diaper rash cream (Desitin or Boudreaux's Butt Paste)"},{"id":"bs1s5","done":false,"label":"Baby nail scissors"},{"id":"bs1s6","done":false,"label":"Onesies/bodysuits with built-in mitten cuffs (NO separate mittens)"},{"id":"bs1s7","done":false,"label":"Swaddle blankets x4-6 (muslin)"},{"id":"bs1s8","done":false,"label":"Sleep sack 0.5 TOG x2 (summer)"},{"id":"bs1s9","done":false,"label":"Sleep sack 1.0 TOG x2 (fall)"},{"id":"bs1s10","done":false,"label":"Sleep sack 2.5 TOG x2 (winter)"},{"id":"bs1s11","done":false,"label":"Mustela or Cetaphil Baby wash/shampoo (for after 6 weeks)"},{"id":"bs1s12","done":false,"label":"Coconut oil or jojoba oil (safe from day 1 for dry skin)"}],"open":false},{"id":"sh1","done":false,"group":"upnext","hot":true,"deadline":false,"owner":"sam","cat":"Nursery","title":"Smart home + nursery temperature setup","hint":"Baby needs room at 65-72F.","notes":"","subtasks":[{"id":"sh1s1","done":false,"label":"Buy room thermometer/hygrometer (Govee or Inkbird ~$15)"},{"id":"sh1s2","done":false,"label":"Get smart bulbs for nursery and bedroom (Matter-compatible)"},{"id":"sh1s3","done":false,"label":"Get smart bulbs for rest of apartment"},{"id":"sh1s4","done":false,"label":"Consider Apple HomePod Mini for voice control"},{"id":"sh1s5","done":false,"label":"Get small space heater with thermostat + auto shutoff (Dreo or Dyson)"}],"open":false},{"id":"ped1","done":false,"group":"today","hot":true,"deadline":false,"owner":"sam","cat":"Pediatrics","title":"Find pediatrician \u2014 URGENT","hint":"Must have 24/7 hotline. Park Slope fills up fast.","notes":"","subtasks":[{"id":"ped1s1","done":false,"label":"Get referrals from OB"},{"id":"ped1s2","done":false,"label":"Check insurance network"},{"id":"ped1s3","done":false,"label":"Confirm they have a 24/7 hotline"},{"id":"ped1s4","done":false,"label":"Book meet and greet calls with top 2-3"}],"open":false}];
+const GROUPS=['today','upnext','other','done'];
+const GROUP_LABELS={today:'Today',upnext:'Up next',other:'On the list',done:'Done'};
+let tasks=[],activeTab='master',dragId=null,saveTimer=null;
 const GRIP=`<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><circle cx="2.5" cy="3" r="1.5"/><circle cx="7.5" cy="3" r="1.5"/><circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/><circle cx="2.5" cy="13" r="1.5"/><circle cx="7.5" cy="13" r="1.5"/></svg>`;
 const CHK=`<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const MCHK=`<svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -294,339 +169,20 @@ const CHEVD=`<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d
 const CHEVU=`<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 9L7 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const PLUS=`<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
 const X=`<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
-
-function setSyncStatus(state) {
-  const dot = document.getElementById('sync-dot');
-  const label = document.getElementById('sync-label');
-  if(state==='live'){dot.className='sync-dot live';label.textContent='Live — syncing across devices';}
-  else if(state==='saving'){dot.className='sync-dot saving';label.textContent='Saving...';}
-  else{dot.className='sync-dot';label.textContent='Connecting...';}
-}
-
-function showStatus(msg){
-  const el=document.getElementById('status');
-  el.textContent=msg;el.classList.add('show');
-  setTimeout(()=>el.classList.remove('show'),1800);
-}
-
-function persist() {
-  setSyncStatus('saving');
-  set(tasksRef, tasks).then(()=>{
-    setSyncStatus('live');
-  }).catch(e=>{
-    console.error(e);
-    showStatus('Save failed');
-  });
-}
-
+function setSyncStatus(s){const d=document.getElementById('sync-dot'),l=document.getElementById('sync-label');if(s==='live'){d.className='sync-dot live';l.textContent='Live — syncing across devices';}else if(s==='saving'){d.className='sync-dot saving';l.textContent='Saving...';}else{d.className='sync-dot';l.textContent='Connecting...';}}
+function showStatus(m){const el=document.getElementById('status');el.textContent=m;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800);}
+function persist(){setSyncStatus('saving');set(tasksRef,tasks).then(()=>setSyncStatus('live')).catch(()=>showStatus('Save failed'));}
 function scheduleSave(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>persist(),600);}
-
-// Listen for real-time updates from Firebase
-onValue(tasksRef, (snapshot) => {
-  const data = snapshot.val();
-  if(!data) {
-    // First time — seed with defaults
-    tasks = JSON.parse(JSON.stringify(DEFAULTS));
-    persist();
-  } else {
-    tasks = Array.isArray(data) ? data : Object.values(data);
-    // preserve open state locally
-  }
-  setSyncStatus('live');
-  if(!isInitialized) isInitialized = true;
-  render();
-});
-
-function getOwnerTasks(owner) {
-  if(owner==='sam') return tasks.filter(t=>t.owner==='sam'||t.owner==='both');
-  if(owner==='sue') return tasks.filter(t=>t.owner==='sue'||t.owner==='both');
-  return tasks;
-}
-
-function updateProgress(owner) {
-  const subset = getOwnerTasks(owner).filter(t=>t.group!=='done');
-  let total=0,done=0;
-  subset.forEach(t=>{
-    if(t.subtasks&&t.subtasks.length){t.subtasks.forEach(s=>{total++;if(s.done)done++;});}
-    else{total++;if(t.done)done++;}
-  });
-  const pct=total?Math.round(done/total*100):0;
-  document.getElementById(owner+'-prog-bar').style.width=pct+'%';
-  document.getElementById(owner+'-prog-label').textContent=`${done} of ${total} tasks done`;
-  GROUPS.forEach(g=>{
-    const el=document.getElementById(owner+'-count-'+g);
-    if(el){const n=getOwnerTasks(owner).filter(t=>t.group===g).length;el.textContent=n+' task'+(n!==1?'s':'');}
-  });
-}
-
-function makeDetailHtml(t, group) {
-  const subs = t.subtasks||[];
-  let subsHtml='';
-  if(subs.length){
-    subsHtml='<div class="subtasks-list">';
-    subs.forEach(s=>{
-      subsHtml+=`<div class="sub${s.done?' done':''}" data-tid="${t.id}" data-sid="${s.id}">
-        <div class="sub-cb">${s.done?MCHK:''}</div>
-        <span class="sub-lbl">${s.label}</span>
-        <button class="sub-edit-btn" data-tid="${t.id}" data-sid="${s.id}">&#9998;</button>
-        <button class="sub-del" data-tid="${t.id}" data-sid="${s.id}">${X}</button>
-      </div>`;
-    });
-    subsHtml+='</div>';
-  }
-  const otherGroups=GROUPS.filter(g=>g!==group);
-  const moveOpts=otherGroups.map(g=>`<option value="${g}">${GROUP_LABELS[g]}</option>`).join('');
-  return `
-    <div class="field-row"><label>Task name</label><input type="text" class="rename-input" data-tid="${t.id}" value="${(t.title||'').replace(/"/g,'&quot;')}"/><button class="rename-save-btn" data-tid="${t.id}">Save</button></div>
-    <div class="field-row"><label>Owner</label><select class="owner-sel" data-tid="${t.id}"><option value="sam"${t.owner==='sam'?' selected':''}>Sam</option><option value="sue"${t.owner==='sue'?' selected':''}>Sue</option><option value="both"${t.owner==='both'?' selected':''}>Both</option></select></div>
-    <div class="field-row"><label>Category</label><input type="text" class="cat-input" data-tid="${t.id}" value="${(t.cat||'').replace(/"/g,'&quot;')}"/><button class="cat-save-btn" data-tid="${t.id}">Save</button></div>
-    ${t.hint?`<div class="hint">${t.hint}</div>`:''}
-    ${subsHtml}
-    <div class="add-sub-row"><input type="text" class="sub-input" data-tid="${t.id}" placeholder="Add a subtask..."/><button class="add-sub-btn" data-tid="${t.id}">${PLUS} Add</button></div>
-    <div class="notes-area"><label>Notes</label><textarea data-tid="${t.id}" rows="3" placeholder="Add notes...">${t.notes||''}</textarea></div>
-    <div class="d-actions">
-      <label>Move to:</label>
-      <select class="move-sel" data-tid="${t.id}"><option value="">— select —</option>${moveOpts}</select>
-      <button class="btn btn-danger" data-del="${t.id}">Delete task</button>
-    </div>`;
-}
-
-function bindDetailEvents(container, group) {
-  container.querySelectorAll('.rename-save-btn').forEach(btn=>{
-    const ri=container.querySelector(`.rename-input[data-tid="${btn.dataset.tid}"]`);
-    const doR=()=>{const v=ri&&ri.value.trim();const t=tasks.find(x=>x.id===btn.dataset.tid);if(t&&v){t.title=v;render();persist();}};
-    btn.addEventListener('click',e=>{e.stopPropagation();doR();});
-    if(ri){ri.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doR();}});ri.addEventListener('click',e=>e.stopPropagation());}
-  });
-  container.querySelectorAll('.cat-save-btn').forEach(btn=>{
-    const ci=container.querySelector(`.cat-input[data-tid="${btn.dataset.tid}"]`);
-    const doC=()=>{const v=ci&&ci.value.trim();const t=tasks.find(x=>x.id===btn.dataset.tid);if(t){t.cat=v;render();persist();}};
-    btn.addEventListener('click',e=>{e.stopPropagation();doC();});
-    if(ci){ci.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doC();}});ci.addEventListener('click',e=>e.stopPropagation());}
-  });
-  container.querySelectorAll('.owner-sel').forEach(sel=>{
-    sel.addEventListener('change',()=>{const t=tasks.find(x=>x.id===sel.dataset.tid);if(t){t.owner=sel.value;render();persist();}});
-    sel.addEventListener('click',e=>e.stopPropagation());
-  });
-  container.querySelectorAll('.sub').forEach(row=>{
-    row.addEventListener('click',e=>{
-      if(e.target.closest('.sub-del')||e.target.closest('.sub-edit-btn'))return;
-      e.stopPropagation();
-      const t=tasks.find(x=>x.id===row.dataset.tid);
-      const s=t&&(t.subtasks||[]).find(x=>x.id===row.dataset.sid);
-      if(s){s.done=!s.done;render();scheduleSave();}
-    });
-  });
-  container.querySelectorAll('.sub-edit-btn').forEach(btn=>{
-    btn.addEventListener('click',e=>{
-      e.stopPropagation();
-      const t=tasks.find(x=>x.id===btn.dataset.tid);
-      const s=t&&(t.subtasks||[]).find(x=>x.id===btn.dataset.sid);
-      if(!s)return;
-      const v=prompt('Rename subtask:',s.label);
-      if(v&&v.trim()){s.label=v.trim();render();persist();}
-    });
-  });
-  container.querySelectorAll('.sub-del').forEach(btn=>{
-    btn.addEventListener('click',e=>{
-      e.stopPropagation();
-      const t=tasks.find(x=>x.id===btn.dataset.tid);
-      if(t){t.subtasks=(t.subtasks||[]).filter(s=>s.id!==btn.dataset.sid);render();persist();}
-    });
-  });
-  container.querySelectorAll('.add-sub-btn').forEach(btn=>{
-    const inp=container.querySelector(`.sub-input[data-tid="${btn.dataset.tid}"]`);
-    const doA=()=>{
-      const v=inp&&inp.value.trim();if(!v)return;
-      const t=tasks.find(x=>x.id===btn.dataset.tid);
-      if(t){if(!t.subtasks)t.subtasks=[];t.subtasks.push({id:'s'+Date.now(),done:false,label:v});if(inp)inp.value='';render();persist();}
-    };
-    btn.addEventListener('click',e=>{e.stopPropagation();doA();});
-    if(inp){inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.stopPropagation();doA();}});inp.addEventListener('click',e=>e.stopPropagation());}
-  });
-  container.querySelectorAll('textarea').forEach(ta=>{
-    ta.addEventListener('input',()=>{const t=tasks.find(x=>x.id===ta.dataset.tid);if(t){t.notes=ta.value;scheduleSave();}});
-    ta.addEventListener('click',e=>e.stopPropagation());
-  });
-  container.querySelectorAll('.move-sel').forEach(sel=>{
-    sel.addEventListener('change',()=>{
-      if(!sel.value)return;
-      const t=tasks.find(x=>x.id===sel.dataset.tid);
-      if(t){t.group=sel.value;t.open=false;t.done=sel.value==='done';render();persist();}
-    });
-    sel.addEventListener('click',e=>e.stopPropagation());
-  });
-  container.querySelectorAll('[data-del]').forEach(btn=>{
-    btn.addEventListener('click',e=>{
-      e.stopPropagation();
-      if(!confirm('Delete this task?'))return;
-      tasks=tasks.filter(x=>x.id!==btn.dataset.del);
-      render();persist();
-    });
-  });
-}
-
-function renderOwnerGroup(owner, group) {
-  const el=document.getElementById(owner+'-g-'+group);
-  if(!el)return;
-  el.innerHTML='';
-  const subset=getOwnerTasks(owner).filter(t=>t.group===group);
-  if(!subset.length){el.innerHTML='<div class="empty">Nothing here</div>';return;}
-
-  subset.forEach(t=>{
-    const subs=t.subtasks||[];
-    const allSubDone=subs.length>0&&subs.every(s=>s.done);
-    const isDone=group==='done'||t.done||(subs.length>0&&allSubDone);
-    const subDoneCount=subs.filter(s=>s.done).length;
-    const subProgress=subs.length>0?`<span class="sub-progress">${subDoneCount}/${subs.length}</span>`:'';
-    let badges='';
-    if(t.hot&&!isDone)badges+='<span class="badge b-hot">high priority</span>';
-    if(group==='today'&&!isDone)badges+='<span class="badge b-today">today</span>';
-    if(t.deadline&&!isDone)badges+='<span class="badge b-deadline">hard deadline</span>';
-    if(t.owner==='both')badges+='<span class="badge b-owner-both">both</span>';
-
-    const card=document.createElement('div');
-    card.className='card'+(isDone?' done':'');
-    card.setAttribute('draggable','true');
-    card.dataset.tid=t.id;
-    card.innerHTML=`
-      <div class="card-main">
-        <div class="grip">${GRIP}</div>
-        <div class="cb" data-tid="${t.id}">${CHK}</div>
-        <span class="t-title" data-tid="${t.id}">${t.title}${subProgress}</span>
-        <div class="badges">${badges}</div>
-        <button class="exp-btn" data-tid="${t.id}">${t.open?CHEVU:CHEVD}</button>
-      </div>
-      ${t.open?`<div class="detail">${makeDetailHtml(t,group)}</div>`:''}`;
-
-    card.addEventListener('dragstart',e=>{dragId=t.id;e.dataTransfer.effectAllowed='move';setTimeout(()=>card.classList.add('dragging'),0);});
-    card.addEventListener('dragend',()=>{card.classList.remove('dragging');document.querySelectorAll('.drag-over,.drag-active').forEach(x=>{x.classList.remove('drag-over');x.classList.remove('drag-active');});dragId=null;});
-    card.addEventListener('dragover',e=>{e.preventDefault();if(dragId&&dragId!==t.id){document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));card.classList.add('drag-over');}});
-    card.addEventListener('dragleave',()=>card.classList.remove('drag-over'));
-    card.addEventListener('drop',e=>{
-      e.preventDefault();e.stopPropagation();
-      if(!dragId||dragId===t.id)return;
-      const fi=tasks.findIndex(x=>x.id===dragId),ti=tasks.findIndex(x=>x.id===t.id);
-      const [moved]=tasks.splice(fi,1);
-      moved.group=group;moved.done=group==='done';
-      tasks.splice(ti,0,moved);
-      render();persist();
-    });
-
-    card.querySelector('.cb').addEventListener('click',e=>{
-      e.stopPropagation();
-      const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);
-      if(!task||(task.subtasks&&task.subtasks.length>0)||group==='done')return;
-      task.done=!task.done;
-      if(task.done)task.group='done';
-      render();persist();
-    });
-    card.querySelector('.t-title').addEventListener('click',e=>{const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);if(task){task.open=!task.open;render();}});
-    card.querySelector('.exp-btn').addEventListener('click',e=>{e.stopPropagation();const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);if(task){task.open=!task.open;render();}});
-
-    if(t.open) bindDetailEvents(card, group);
-    el.appendChild(card);
-  });
-
-  el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('drag-active');});
-  el.addEventListener('dragleave',e=>{if(!el.contains(e.relatedTarget))el.classList.remove('drag-active');});
-  el.addEventListener('drop',e=>{
-    e.preventDefault();el.classList.remove('drag-active');
-    if(!dragId)return;
-    const task=tasks.find(x=>x.id===dragId);
-    if(task&&task.group!==group){task.group=group;task.open=false;task.done=group==='done';render();persist();}
-  });
-}
-
-function renderMaster() {
-  const el=document.getElementById('master-view');
-  if(!el)return;
-  el.innerHTML='';
-  const cats={};
-  tasks.forEach(t=>{const c=t.cat||'Other';if(!cats[c])cats[c]=[];cats[c].push(t);});
-  Object.keys(cats).sort().forEach(cat=>{
-    const group=document.createElement('div');
-    group.className='master-cat-group';
-    const titleEl=document.createElement('div');
-    titleEl.className='master-cat-title';
-    titleEl.textContent=cat;
-    group.appendChild(titleEl);
-
-    cats[cat].forEach(t=>{
-      const isDone=t.done||(t.subtasks&&t.subtasks.length>0&&t.subtasks.every(s=>s.done));
-      const ownerLabel=t.owner==='sam'?'Sam':t.owner==='sue'?'Sue':'Both';
-      const row=document.createElement('div');
-      row.className='master-row';
-      row.innerHTML=`
-        <div class="master-cb${isDone?' done':''}" data-tid="${t.id}">${isDone?MCHK:''}</div>
-        <span class="master-task-title${isDone?' done-title':''}">${t.title}</span>
-        <span class="master-owner owner-${t.owner}">${ownerLabel}</span>
-        <button class="master-edit-btn" data-tid="${t.id}">&#9998; Edit</button>`;
-
-      row.querySelector('.master-cb').addEventListener('click',e=>{
-        e.stopPropagation();
-        const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);
-        if(!task||task.subtasks&&task.subtasks.length>0)return;
-        task.done=!task.done;
-        if(task.done)task.group='done';
-        render();persist();
-      });
-
-      row.querySelector('.master-edit-btn').addEventListener('click',e=>{
-        e.stopPropagation();
-        const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);
-        if(task){task.open=!task.open;render();}
-      });
-
-      group.appendChild(row);
-
-      if(t.open){
-        const detailEl=document.createElement('div');
-        detailEl.className='master-detail';
-        detailEl.innerHTML=makeDetailHtml(t, t.group);
-        bindDetailEvents(detailEl, t.group);
-        group.appendChild(detailEl);
-      }
-    });
-    el.appendChild(group);
-  });
-}
-
-function render() {
-  if(activeTab==='master') renderMaster();
-  GROUPS.forEach(g=>{renderOwnerGroup('sam',g);renderOwnerGroup('sue',g);});
-  updateProgress('sam');
-  updateProgress('sue');
-}
-
-window.switchTab = function(tab) {
-  activeTab=tab;
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  ['master','sam','sue'].forEach((n,i)=>{if(n===tab)document.querySelectorAll('.tab')[i].classList.add('active');});
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('tab-'+tab).classList.add('active');
-  if(tab==='master')renderMaster();
-};
-
-window.addTask = function() {
-  const title=document.getElementById('m-new-title').value.trim();
-  if(!title)return;
-  tasks.push({
-    id:'t'+Date.now(),done:false,
-    group:document.getElementById('m-new-group').value,
-    hot:document.getElementById('m-new-hot').checked,
-    deadline:document.getElementById('m-new-deadline').checked,
-    owner:document.getElementById('m-new-owner').value,
-    cat:document.getElementById('m-new-cat').value.trim()||'Other',
-    title,
-    hint:document.getElementById('m-new-hint').value.trim(),
-    notes:'',subtasks:[],open:false
-  });
-  ['m-new-title','m-new-cat','m-new-hint'].forEach(id=>document.getElementById(id).value='');
-  ['m-new-hot','m-new-deadline'].forEach(id=>document.getElementById(id).checked=false);
-  render();persist();
-};
-
+onValue(tasksRef,(snapshot)=>{const data=snapshot.val();if(!data){tasks=JSON.parse(JSON.stringify(DEFAULTS));persist();}else{tasks=Array.isArray(data)?data:Object.values(data);}setSyncStatus('live');render();});
+function getOwnerTasks(o){if(o==='sam')return tasks.filter(t=>t.owner==='sam'||t.owner==='both');if(o==='sue')return tasks.filter(t=>t.owner==='sue'||t.owner==='both');return tasks;}
+function updateProgress(o){const subset=getOwnerTasks(o).filter(t=>t.group!=='done');let total=0,done=0;subset.forEach(t=>{if(t.subtasks&&t.subtasks.length){t.subtasks.forEach(s=>{total++;if(s.done)done++;});}else{total++;if(t.done)done++;}});const pct=total?Math.round(done/total*100):0;document.getElementById(o+'-prog-bar').style.width=pct+'%';document.getElementById(o+'-prog-label').textContent=`${done} of ${total} tasks done`;GROUPS.forEach(g=>{const el=document.getElementById(o+'-count-'+g);if(el){const n=getOwnerTasks(o).filter(t=>t.group===g).length;el.textContent=n+' task'+(n!==1?'s':'');}});}
+function makeDetailHtml(t,group){const subs=t.subtasks||[];let subsHtml='';if(subs.length){subsHtml='<div class="subtasks-list">';subs.forEach(s=>{subsHtml+=`<div class="sub${s.done?' done':''}" data-tid="${t.id}" data-sid="${s.id}"><div class="sub-cb">${s.done?MCHK:''}</div><span class="sub-lbl">${s.label}</span><button class="sub-edit-btn" data-tid="${t.id}" data-sid="${s.id}">&#9998;</button><button class="sub-del" data-tid="${t.id}" data-sid="${s.id}">${X}</button></div>`;});subsHtml+='</div>';}const og=GROUPS.filter(g=>g!==group);const mo=og.map(g=>`<option value="${g}">${GROUP_LABELS[g]}</option>`).join('');return `<div class="field-row"><label>Task name</label><input type="text" class="rename-input" data-tid="${t.id}" value="${(t.title||'').replace(/"/g,'&quot;')}"/><button class="rename-save-btn" data-tid="${t.id}">Save</button></div><div class="field-row"><label>Owner</label><select class="owner-sel" data-tid="${t.id}"><option value="sam"${t.owner==='sam'?' selected':''}>Sam</option><option value="sue"${t.owner==='sue'?' selected':''}>Sue</option><option value="both"${t.owner==='both'?' selected':''}>Both</option></select></div><div class="field-row"><label>Category</label><input type="text" class="cat-input" data-tid="${t.id}" value="${(t.cat||'').replace(/"/g,'&quot;')}"/><button class="cat-save-btn" data-tid="${t.id}">Save</button></div>${t.hint?`<div class="hint">${t.hint}</div>`:''}<div class="notes-area"><label>Notes</label><textarea data-tid="${t.id}" rows="3" placeholder="Add notes...">${t.notes||''}</textarea></div>${subsHtml}<div class="add-sub-row"><input type="text" class="sub-input" data-tid="${t.id}" placeholder="Add a subtask..."/><button class="add-sub-btn" data-tid="${t.id}">${PLUS} Add</button></div><div class="d-actions"><label>Move to:</label><select class="move-sel" data-tid="${t.id}"><option value="">&#8212; select &#8212;</option>${mo}</select><button class="btn btn-danger" data-del="${t.id}">Delete task</button></div>`;}
+function bindDetailEvents(container,group){container.querySelectorAll('.rename-save-btn').forEach(btn=>{const ri=container.querySelector(`.rename-input[data-tid="${btn.dataset.tid}"]`);const doR=()=>{const v=ri&&ri.value.trim();const t=tasks.find(x=>x.id===btn.dataset.tid);if(t&&v){t.title=v;render();persist();}};btn.addEventListener('click',e=>{e.stopPropagation();doR();});if(ri){ri.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doR();}});ri.addEventListener('click',e=>e.stopPropagation());}});container.querySelectorAll('.cat-save-btn').forEach(btn=>{const ci=container.querySelector(`.cat-input[data-tid="${btn.dataset.tid}"]`);const doC=()=>{const v=ci&&ci.value.trim();const t=tasks.find(x=>x.id===btn.dataset.tid);if(t){t.cat=v;render();persist();}};btn.addEventListener('click',e=>{e.stopPropagation();doC();});if(ci){ci.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doC();}});ci.addEventListener('click',e=>e.stopPropagation());}});container.querySelectorAll('.owner-sel').forEach(sel=>{sel.addEventListener('change',()=>{const t=tasks.find(x=>x.id===sel.dataset.tid);if(t){t.owner=sel.value;render();persist();}});sel.addEventListener('click',e=>e.stopPropagation());});container.querySelectorAll('.sub').forEach(row=>{row.addEventListener('click',e=>{if(e.target.closest('.sub-del')||e.target.closest('.sub-edit-btn'))return;e.stopPropagation();const t=tasks.find(x=>x.id===row.dataset.tid);const s=t&&(t.subtasks||[]).find(x=>x.id===row.dataset.sid);if(s){s.done=!s.done;render();scheduleSave();}});});container.querySelectorAll('.sub-edit-btn').forEach(btn=>{btn.addEventListener('click',e=>{e.stopPropagation();const t=tasks.find(x=>x.id===btn.dataset.tid);const s=t&&(t.subtasks||[]).find(x=>x.id===btn.dataset.sid);if(!s)return;const v=prompt('Rename subtask:',s.label);if(v&&v.trim()){s.label=v.trim();render();persist();}});});container.querySelectorAll('.sub-del').forEach(btn=>{btn.addEventListener('click',e=>{e.stopPropagation();const t=tasks.find(x=>x.id===btn.dataset.tid);if(t){t.subtasks=(t.subtasks||[]).filter(s=>s.id!==btn.dataset.sid);render();persist();}});});container.querySelectorAll('.add-sub-btn').forEach(btn=>{const inp=container.querySelector(`.sub-input[data-tid="${btn.dataset.tid}"]`);const doA=()=>{const v=inp&&inp.value.trim();if(!v)return;const t=tasks.find(x=>x.id===btn.dataset.tid);if(t){if(!t.subtasks)t.subtasks=[];t.subtasks.push({id:'s'+Date.now(),done:false,label:v});if(inp)inp.value='';render();persist();}};btn.addEventListener('click',e=>{e.stopPropagation();doA();});if(inp){inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.stopPropagation();doA();}});inp.addEventListener('click',e=>e.stopPropagation());}});container.querySelectorAll('textarea').forEach(ta=>{ta.addEventListener('input',()=>{const t=tasks.find(x=>x.id===ta.dataset.tid);if(t){t.notes=ta.value;scheduleSave();}});ta.addEventListener('click',e=>e.stopPropagation());});container.querySelectorAll('.move-sel').forEach(sel=>{sel.addEventListener('change',()=>{if(!sel.value)return;const t=tasks.find(x=>x.id===sel.dataset.tid);if(t){t.group=sel.value;t.open=false;t.done=sel.value==='done';render();persist();}});sel.addEventListener('click',e=>e.stopPropagation());});container.querySelectorAll('[data-del]').forEach(btn=>{btn.addEventListener('click',e=>{e.stopPropagation();if(!confirm('Delete this task?'))return;tasks=tasks.filter(x=>x.id!==btn.dataset.del);render();persist();});});}
+function renderOwnerGroup(owner,group){const el=document.getElementById(owner+'-g-'+group);if(!el)return;el.innerHTML='';const subset=getOwnerTasks(owner).filter(t=>t.group===group);if(!subset.length){el.innerHTML='<div class="empty">Nothing here</div>';return;}subset.forEach(t=>{const subs=t.subtasks||[];const allSubDone=subs.length>0&&subs.every(s=>s.done);const isDone=group==='done'||t.done||(subs.length>0&&allSubDone);const subDoneCount=subs.filter(s=>s.done).length;const subProgress=subs.length>0?`<span class="sub-progress">${subDoneCount}/${subs.length}</span>`:'';let badges='';if(t.hot&&!isDone)badges+='<span class="badge b-hot">high priority</span>';if(group==='today'&&!isDone)badges+='<span class="badge b-today">today</span>';if(t.deadline&&!isDone)badges+='<span class="badge b-deadline">hard deadline</span>';if(t.owner==='both')badges+='<span class="badge b-owner-both">both</span>';const card=document.createElement('div');card.className='card'+(isDone?' done':'');card.setAttribute('draggable','true');card.dataset.tid=t.id;card.innerHTML=`<div class="card-main"><div class="grip">${GRIP}</div><div class="cb" data-tid="${t.id}">${CHK}</div><span class="t-title" data-tid="${t.id}">${t.title}${subProgress}</span><div class="badges">${badges}</div><button class="exp-btn" data-tid="${t.id}">${t.open?CHEVU:CHEVD}</button></div>${t.open?`<div class="detail">${makeDetailHtml(t,group)}</div>`:''}`;card.addEventListener('dragstart',e=>{dragId=t.id;e.dataTransfer.effectAllowed='move';setTimeout(()=>card.classList.add('dragging'),0);});card.addEventListener('dragend',()=>{card.classList.remove('dragging');document.querySelectorAll('.drag-over,.drag-active').forEach(x=>{x.classList.remove('drag-over');x.classList.remove('drag-active');});dragId=null;});card.addEventListener('dragover',e=>{e.preventDefault();if(dragId&&dragId!==t.id){document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));card.classList.add('drag-over');}});card.addEventListener('dragleave',()=>card.classList.remove('drag-over'));card.addEventListener('drop',e=>{e.preventDefault();e.stopPropagation();if(!dragId||dragId===t.id)return;const fi=tasks.findIndex(x=>x.id===dragId),ti=tasks.findIndex(x=>x.id===t.id);const[moved]=tasks.splice(fi,1);moved.group=group;moved.done=group==='done';tasks.splice(ti,0,moved);render();persist();});card.querySelector('.cb').addEventListener('click',e=>{e.stopPropagation();const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);if(!task||(task.subtasks&&task.subtasks.length>0)||group==='done')return;task.done=!task.done;if(task.done)task.group='done';render();persist();});card.querySelector('.t-title').addEventListener('click',e=>{const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);if(task){task.open=!task.open;render();}});card.querySelector('.exp-btn').addEventListener('click',e=>{e.stopPropagation();const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);if(task){task.open=!task.open;render();}});if(t.open)bindDetailEvents(card,group);el.appendChild(card);});el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('drag-active');});el.addEventListener('dragleave',e=>{if(!el.contains(e.relatedTarget))el.classList.remove('drag-active');});el.addEventListener('drop',e=>{e.preventDefault();el.classList.remove('drag-active');if(!dragId)return;const task=tasks.find(x=>x.id===dragId);if(task&&task.group!==group){task.group=group;task.open=false;task.done=group==='done';render();persist();}});}
+function renderMaster(){const el=document.getElementById('master-view');if(!el)return;el.innerHTML='';const cats={};tasks.forEach(t=>{const c=t.cat||'Other';if(!cats[c])cats[c]=[];cats[c].push(t);});Object.keys(cats).sort().forEach(cat=>{const group=document.createElement('div');group.className='master-cat-group';const titleEl=document.createElement('div');titleEl.className='master-cat-title';titleEl.textContent=cat;group.appendChild(titleEl);cats[cat].forEach(t=>{const isDone=t.done||(t.subtasks&&t.subtasks.length>0&&t.subtasks.every(s=>s.done));const ownerLabel=t.owner==='sam'?'Sam':t.owner==='sue'?'Sue':'Both';const row=document.createElement('div');row.className='master-row';row.innerHTML=`<div class="master-cb${isDone?' done':''}" data-tid="${t.id}">${isDone?MCHK:''}</div><span class="master-task-title${isDone?' done-title':''}">${t.title}</span><span class="master-owner owner-${t.owner}">${ownerLabel}</span><button class="master-edit-btn" data-tid="${t.id}">&#9998; Edit</button>`;row.querySelector('.master-cb').addEventListener('click',e=>{e.stopPropagation();const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);if(!task||task.subtasks&&task.subtasks.length>0)return;task.done=!task.done;if(task.done)task.group='done';render();persist();});row.querySelector('.master-edit-btn').addEventListener('click',e=>{e.stopPropagation();const task=tasks.find(x=>x.id===e.currentTarget.dataset.tid);if(task){task.open=!task.open;render();}});group.appendChild(row);if(t.open){const detailEl=document.createElement('div');detailEl.className='master-detail';detailEl.innerHTML=makeDetailHtml(t,t.group);bindDetailEvents(detailEl,t.group);group.appendChild(detailEl);}});el.appendChild(group);});}
+function render(){if(activeTab==='master')renderMaster();GROUPS.forEach(g=>{renderOwnerGroup('sam',g);renderOwnerGroup('sue',g);});updateProgress('sam');updateProgress('sue');}
+window.switchTab=function(tab){activeTab=tab;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));['master','sam','sue'].forEach((n,i)=>{if(n===tab)document.querySelectorAll('.tab')[i].classList.add('active');});document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.getElementById('tab-'+tab).classList.add('active');if(tab==='master')renderMaster();};
+window.addTask=function(){const title=document.getElementById('m-new-title').value.trim();if(!title)return;tasks.push({id:'t'+Date.now(),done:false,group:document.getElementById('m-new-group').value,hot:document.getElementById('m-new-hot').checked,deadline:document.getElementById('m-new-deadline').checked,owner:document.getElementById('m-new-owner').value,cat:document.getElementById('m-new-cat').value.trim()||'Other',title,hint:document.getElementById('m-new-hint').value.trim(),notes:'',subtasks:[],open:false});['m-new-title','m-new-cat','m-new-hint'].forEach(id=>document.getElementById(id).value='');['m-new-hot','m-new-deadline'].forEach(id=>document.getElementById(id).checked=false);render();persist();};
 document.getElementById('m-new-title').addEventListener('keydown',e=>{if(e.key==='Enter')window.addTask();});
 </script>
 </body>
